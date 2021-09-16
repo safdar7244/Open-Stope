@@ -1,0 +1,172 @@
+
+.mat-dialog-content {
+  padding-top: 2%;
+  padding-bottom: 5%;
+}
+
+.mat-dialog-title {
+  margin: 0%;
+  text-align: center;
+  font-size: 1.2vw;
+  background-color: #226556;
+  padding: 0.5%;
+  margin-left:5%;
+  width: 90%;
+  color: white;
+  border-radius: 0.5em;
+}
+
+p {
+  font-size: 1.1vw;
+  text-align: center;
+}
+
+input[type=number], select, textarea {
+  border-color: #696969;
+  background-color: #F5F5F5;
+  color: black;
+  width: 92%;
+  padding: 0.5%;
+  border-radius: 0.5em;
+  resize: vertical;
+  font-size: 1vw;
+  box-shadow: none !important;
+  &:focus {
+    box-shadow:1px 1px 3px #226556 !important;
+    background-color: white;
+  }
+}
+
+i {
+  border: none;
+  background-color: white;
+  color: rgb(179, 173, 173);
+  font-size: 1.2vw;
+  margin-left:2%;
+  margin-top: 2%;
+  padding-left: 0%;
+}
+
+::ng-deep .mat-tooltip{
+font-size: 0.9vw;
+width: 50%;
+padding:1%;
+margin: 0%;
+max-width: unset !important;
+}
+  
+label {
+  padding: 0.5% 1% 0.5% 0%;;
+  text-align: left;
+  display: block;
+  font-size: 1.1vw;
+  color: black;
+  margin-bottom: 0;
+}
+
+select {
+  border-color: #696969;
+  color: black;
+  padding: 0.5%;
+  border-radius: 0.5em;
+  resize: vertical;
+}
+
+select:focus {
+  outline:none !important;
+  box-shadow:1px 1px 3px #226556 !important;
+}
+    
+.text-danger {
+  width: 100%;
+  margin-left: 0%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  position: fixed;
+  font-size: 0.9vw;
+} 
+#calc {
+  background-color: #226556;
+  border: none;
+  color: white;
+  padding: 0.8%;
+  width: 25%;
+  margin-left: 37.5%;
+  position: relative;;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1vw;
+  border-radius: 0.5em;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  &:hover {
+  background: #267463;
+  text-decoration: none;
+  color: white;
+  border: none;
+  }
+}
+
+button:focus {
+  outline:none !important;
+}
+
+.close.mat-button {
+  position:absolute;
+  top:0;
+  right: 0;
+  padding: 0.5%;
+  min-width: auto;
+  border: none;
+  text-decoration: none;
+  }
+
+#inter {
+  margin-left:15%;
+}
+@media only screen and (max-width:750px) {
+  .mat-dialog-title {
+    padding: 0%;
+    line-height: 200%;
+  }
+  .form-group {
+    margin-top: 0%;
+    margin-bottom: 2%;
+  }
+  select {
+    height: 10%;
+    padding:1%;
+  } 
+  input {
+    height: 10%;
+    padding:1%;
+  }
+  label {
+    line-height: 180%;
+  }
+  .text-danger {
+    margin-top: -3em;
+  }
+  #inter {
+    margin-left:14%;
+  }
+  #text-danger {
+    margin-top: 1.5%;
+  }
+  #calc {
+    padding: 0%;
+    line-height: 200%;
+  }
+  p {
+    line-height: 180%;
+  }
+}
+
+::ng-deep .mat-tooltip{
+  font-size: 0.9vw;
+  width: 60%;
+  padding:1%;
+  margin: 0%;
+  max-width: unset !important;
+  line-height: 130%;
+}

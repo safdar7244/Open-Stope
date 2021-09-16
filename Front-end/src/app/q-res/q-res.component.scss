@@ -1,0 +1,86 @@
+.col-40 {
+  background-color: white;  
+  top: 2%;
+  height: 81%;
+  width: 42%;
+  margin-right: 6%;
+  margin-bottom: 10%;
+  float: right;
+  position:relative;
+  border-radius: 4px;
+  text-align: center;
+}
+
+#QModified {
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  width: 35%;
+  height: 30%;
+  margin-left: 0%;
+  margin-top: 3%;
+}
+
+#rqd {
+  position: fixed;
+  top: 42%;
+  right: 10%;
+  width: 35%;
+  height: 30%;
+  margin-left: 0%;
+  margin-top: 2%;
+}
+
+.next button {
+  background-color: #226556;
+  border: none;
+  color: white;
+  padding: 0.5%;
+  width: 8%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2vw;
+  border-radius: 0.5em;
+  display: block;
+  position: fixed;
+  bottom: 5%;
+  right:3%;
+  &:hover {
+    background: #267463;
+    text-decoration: none;
+    color: white;
+    border: none;
+  }
+}
+
+.next button:focus {
+  outline:none !important;
+}
+
+h4 {
+  margin: 2%;
+  padding: 2%;
+  font-size: 1.2vw;
+}
+
+h3 {
+  padding: 2%;
+  font-size: 1.6vw;
+}
+
+@media screen and (max-width: 750px) {
+  h4 {
+    padding: 0%;
+  }
+  h3 {
+    padding: 0%;
+  }
+  hr {
+    margin-top: 0%;
+    margin-bottom: 0%;
+  }
+  .next button {
+    padding: 0%;
+  }
+}
+  

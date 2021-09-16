@@ -1,0 +1,97 @@
+h2 {
+  text-align: center;
+  margin-top: 2%;
+  font-size: 1.2vw;
+}
+
+.contact {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  margin: auto;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 1%;
+  width: 30%;
+  color: #000000;
+  font-size: 1.2vw;
+}
+
+button {
+  background: #226556;
+  border: none;
+  width: 25%;
+  color: white;
+  font-size: 1.2vw;
+  margin-top: 3%;
+  padding: 1% 0.7%;
+  position: relative;
+  left: 35%;
+  border-radius: 0.2em;
+}
+
+button:focus {
+  outline:none !important;
+}
+
+button:hover {
+  background-color:#268673;
+}
+
+.subject {
+  margin: 4%;
+  text-align: center;
+}
+
+select {
+  margin-left: 7%;
+  width: 50%;
+  font-size: 1.1vw;
+  &:focus {
+    border-color: #226556 !important;
+    box-shadow: none !important;
+    outline:none !important;
+  }
+}
+input {
+  width: 100%;
+  box-shadow: none !important;
+  outline: none;
+  font-size: 1.2vw;
+  &:focus {
+    border-color: #226556 !important;
+    box-shadow: #226556;
+  }
+}
+
+textarea {
+  box-shadow: none !important;
+  font-size: 1.1vw;
+  &:focus {
+    border-color: #226556 !important;
+    outline: #226556;
+  }
+} 
+
+@media only screen and (max-width:1000px) {
+  .form-control {
+    padding: 2%;
+    line-height: 100%;
+  }
+  input {
+    height: 20%;
+  }
+  textarea {
+    line-height: 200%;
+  }
+  select {
+    width: 70%;
+  }
+  h2{
+    margin-bottom: 0%;
+    line-height: 200%;
+  }
+  button {
+    line-height: 200%;
+  }
+}

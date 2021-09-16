@@ -1,0 +1,36 @@
+<button tabindex="-1" mat-button class="close" 
+[mat-dialog-close]="true" style="font-size:1.5vw">x
+</button>
+
+<h1 mat-dialog-title>Select Jr that matches your condition</h1>
+
+<div mat-dialog-content>
+
+  <h6><i>1) Rock-wall contact, and rock-wall contact before 10 cm of shear</i></h6>
+
+  <div mat-dialog-actions>
+    
+    <div class="jrh">
+
+      <button value="4" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>A. Discontinuous joints <p>&#x2223; 4.0&nbsp;&nbsp;</p></button>
+      <button value="3" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>B. Rough or irregular, undulating <p>&#x2223; 3.0&nbsp;&nbsp;</p></button>
+      <button value="2" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>C. Smooth, undulating <p>&#x2223; 2.0&nbsp;&nbsp;</p></button>
+      <button value="1.5" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>D. Slickensided, undulating <p>&#x2223; 1.5&nbsp;&nbsp;</p></button>
+      <button value="1.5" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>E. Rough or irregular, planar <p>&#x2223; 1.5&nbsp;&nbsp;</p></button>
+      <button value="1" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>F. Smooth, planar <p>&#x2223; 1.0&nbsp;&nbsp;</p></button>
+      <button value="0.5" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>G. Slickensided, planar <p>&#x2223; 0.5&nbsp;&nbsp;</p></button>
+
+      <h6><i> 2) No rock-wall contact when sheared</i></h6>
+      <button value="1" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>H. Zone containing clay minerals thick enough to prevent rock-wall contact   <p>&#x2223; 1.0</p></button>
+      <button value="1" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>J. Sandy, gravelly or crushed zone thick enough to prevent rock-wall contact  <p>&#x2223; 1.0</p></button>
+
+      <div class="jrNote">
+        <p>Note 1: Descriptions refer to small scale features and intermediate scale features, in that order.</p><br>
+        <p>Note 2: Add 1.0 if the mean spacing of the relevant joint set is gretaer than 3m</p><br>
+        <p>Note 3: Jr=0.5 can be used for planar, slickensided joints having lineations, provided the lineations are oriented for minimum strength.</p><br>
+        <p>Note 4: Jr and Ja classification is applied to the joint set or discontinuity that is least favorable for stability both from the point of view of orientation and shear resistance, τ (where τ≈σn*arctan(Jr/Ja)).</p>
+      </div>
+
+    </div>
+  </div>
+</div>

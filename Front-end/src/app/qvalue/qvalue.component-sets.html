@@ -1,0 +1,21 @@
+<button tabindex="-1" mat-button class="close" 
+[mat-dialog-close]="true" style="font-size:1.5vw">x
+</button>
+
+<h1 mat-dialog-title>Select Jn that matches your condition</h1>
+
+<div mat-dialog-content>
+  <div mat-dialog-actions>
+    <div class="jn">
+      <button mat-button (click)="onClick($event)" value=1 [mat-dialog-close]="" cdkFocusInitial>A. Massive, no or few joints <p>&#x2223; 0.75</p></button>
+      <button mat-button (click)="onClick($event)" value=2 [mat-dialog-close]="" cdkFocusInitial>B. One joint set <p>&#x2223; 2.0&nbsp;&nbsp;</p></button>
+      <button mat-button (click)="onClick($event)" value=3 [mat-dialog-close]="" cdkFocusInitial>C. One joint set plus random joints <p>&#x2223; 3.0&nbsp;&nbsp;</p></button>
+      <button mat-button (click)="onClick($event)" value=4 [mat-dialog-close]="" cdkFocusInitial>D. Two joint sets <p>&#x2223; 4.0&nbsp;&nbsp;</p></button>
+      <button mat-button (click)="onClick($event)" value=5 [mat-dialog-close]="" cdkFocusInitial>E. Two joint sets plus random joints <p>&#x2223; 6.0&nbsp;&nbsp;</p></button>
+      <button mat-button (click)="onClick($event)" value=6 [mat-dialog-close]="" cdkFocusInitial>F. Three joint sets <p>&#x2223; 9.0&nbsp;&nbsp;</p></button>
+      <button mat-button (click)="onClick($event)" value=7 [mat-dialog-close]="" cdkFocusInitial>G. Three joint sets plus random joints <p>&#x2223; 12.0</p></button>
+      <button mat-button (click)="onClick($event)" value=8 [mat-dialog-close]="" cdkFocusInitial>H. Four or more joint sets, random heavily jointed "sugar cube", etc. <p>&#x2223; 15.0</p></button>
+      <button mat-button (click)="onClick($event)" value=9 [mat-dialog-close]="" cdkFocusInitial style="margin-bottom: 3%;">J. Crushed rock, earth like <p>&#x2223; 20.0</p></button>
+    </div>
+  </div>
+</div>

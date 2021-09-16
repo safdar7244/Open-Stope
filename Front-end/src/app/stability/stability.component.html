@@ -1,0 +1,208 @@
+<app-tool-nav></app-tool-nav>
+<div class="bg">
+<div class="tab">
+  <mat-tab-group animationDuration="0ms">
+    <mat-tab id="recLab" label="Recommended" style="padding-left: 1%;">
+  
+      <div id="rec">
+        <canvas baseChart
+          [datasets]="refinedChartData"
+          [options]="scatterChartOptions"
+          [legend]="ChartLegend"
+          [colors]="ChartColors">
+        </canvas>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Modified">
+      <div id="rec">
+        <canvas baseChart
+          [datasets]="modifiedChartData"
+          [options]="modifiedChartOptions"
+          [legend]="ChartLegend"
+          [colors]="ChartColors">
+        </canvas>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Extended">  
+      <div id="rec">
+        <canvas baseChart
+          [datasets]="extendedChartData"
+          [options]="extendedChartOptions"
+          [legend]="ChartLegend"
+          [colors]="ChartColors">
+        </canvas>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<div class="tab2" id="xeno">
+  <h3>Sensitivity analysis of stope surfaces
+    <i class="fas fa-info-circle" aria-hidden="true"
+    matTooltip="The results are based on the modified stability number." 
+    matTooltipPosition="right" matTooltipClass="toolTip"></i>
+  </h3>
+  <mat-tab-group animationDuration="0ms">
+ 
+      <mat-tab label="Crown" id="xoxo">
+        <div id="senie">
+          <canvas baseChart 
+            [datasets]="crownChartData" 
+            [labels]="crownChartLabels"
+            [options]="sensitivityChartOptions"
+            [legend]="sensitivityChartLegend"
+            [chartType]="sensitivityChartType"
+            [colors]="sensitivityChartColors">
+          </canvas>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="HW">
+        <div class="sen">
+          <canvas baseChart
+            [datasets]="hwChartData"
+            [labels]="hwChartLabels"
+            [options]="sensitivityChartOptions"
+            [legend]="sensitivityChartLegend"
+            [chartType]="sensitivityChartType"
+            [colors]="sensitivityChartColors">
+          </canvas>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="FW">
+        <div class="sen">
+          <canvas baseChart
+            [datasets]="fwChartData"
+            [labels]="fwChartLabels"
+            [options]="sensitivityChartOptions"
+            [legend]="sensitivityChartLegend"
+            [chartType]="sensitivityChartType"
+            [colors]="sensitivityChartColors">
+          </canvas>
+        </div>
+      </mat-tab>
+
+        <mat-tab label="SW 1"> 
+        <div class="sen">
+          <canvas baseChart
+            [datasets]="side1ChartData"
+            [labels]="side1ChartLabels"
+            [options]="sensitivityChartOptions"
+            [legend]="sensitivityChartLegend"
+            [chartType]="sensitivityChartType"
+            [colors]="sensitivityChartColors">
+          </canvas>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="SW 2"> 
+        <div class="sen">
+          <canvas baseChart
+            [datasets]="side2ChartData"
+            [labels]="side2ChartLabels"
+            [options]="sensitivityChartOptions"
+            [legend]="sensitivityChartLegend"
+            [chartType]="sensitivityChartType"
+            [colors]="sensitivityChartColors">
+          </canvas>
+        </div>
+      </mat-tab>
+  </mat-tab-group>
+</div>
+
+<div class="col-40">
+  <h4 style="font-size:1.3vw; text-align:center">Probabilistic prediction of stope surface stability
+    <i class="fas fa-info-circle" aria-hidden="true"
+    matTooltip="The results are based on the modified stability number." 
+    matTooltipPosition="right" matTooltipClass="toolTip"></i>
+  </h4>
+  <p id="crownCheck">
+    <span  style="float:left; color:gray; font-weight:normal; font-size:1.4vw;">Crown</span>
+    <span id="crownstable" style="float:left;color:#226556;margin-left:25%;  font-size:1vw;"></span>
+    <span id="crownunstable" style="float:left;color:grey;margin-left:15%;   font-size:1vw;"></span>
+    <span  id="crownfailure" style="float:left;color:#CC0000;margin-left:15%;font-size:1vw;"></span>
+  </p>
+  <br>
+  <p id="crownCheck1" style="font-size:1vw; font-weight:normal; margin-top:1%;">
+    <!-- <input id="crownstable"/> -->
+    <span   style="float:left;margin-left: 35%;">Stable</span>
+    
+    <span  style="float:left;margin-left:12%;; ;">Unstable</span>
+    <span style="float:left;margin-left:10%;; ">Failure</span>
+  </p>
+  <br>
+  <hr>
+
+  <p>
+    <span style="font-weight: normal; float:left; color:gray;font-size:1.4vw;">Hangingwall</span>
+    <span id="hangstable" style="float:left;color:#226556;margin-left:15%; font-size:1.0vw;"></span>
+    <span id="hangunstable"  style="float:left;color:grey; margin-left:13%;font-size:1.0vw;"></span>
+    <span id="hangfailure" style="float:left;color:#CC0000;margin-left:13%;font-size:1.0vw;"></span>
+  </p>
+  <br>
+  <p style="font-size: 1vw; font-weight:normal; margin-top:1%;">
+    <span   style="float:left;margin-left: 35%;;;">Stable</span>
+    <span style="float:left;margin-left:12%;;;">Unstable</span>
+    <span  style="float:left;margin-left:10%; ;; ">Failure</span>
+  </p>
+  <br>
+  <hr>
+
+  <p>
+    <span style="font-weight: normal; float:left; color:gray;font-size:1.4vw;">Footwall</span>
+    <span id="footstable" style="float:left;color:#226556;margin-left:23%; font-size:1.0vw;"></span>
+    <span id="footunstable" style="float:left;color:grey;margin-left:14%;  font-size:1.0vw;"></span>
+    <span id="footfailure" style="float:left;color:#CC0000;margin-left:13%;font-size:1.0vw;"></span>
+  </p>
+  <br>
+  <p style="font-size: 1vw;font-weight:normal; margin-top:1%;">
+    <span  style="float:left;margin-left: 35%;;;">Stable</span>
+    <span style="float:left;margin-left:12%; ;;">Unstable</span>
+    <span  style="float:left;margin-left:10%; ;;">Failure</span>
+  </p>
+  <br>
+  <hr>
+
+  <p>
+    <span style="font-weight: normal; float:left; color:gray;font-size:1.4vw;">Sidewall 1</span>
+    <span id="sw1stable" style="float:left;color:#226556;margin-left:21%; font-size:1.0vw;"></span>
+    <span id="sw1unstable" style="float:left;color:grey;margin-left:12%;  font-size:1.0vw;"></span>
+    <span id="sw1failure" style="float:left;color:#CC0000;margin-left:14%;font-size:1.0vw;"></span>
+  </p>
+  <br>
+  <p style="font-size: 1vw;font-weight:normal; margin-top:1%;">
+    <span  style="float:left;margin-left: 35%;;;">Stable</span>
+    <span  style="float:left;margin-left:12%; ;;">Unstable</span>
+    <span  style="float:left;margin-left:10%; ;;">Failure</span>
+  </p>
+  <br>
+  <hr>
+
+  <p>
+    <span style="font-weight: normal; float:left; color:gray;font-size:1.4vw;">Sidewall 2</span>
+    <span id="sw2stable" style="float:left;color:#226556;margin-left:21%; font-size:1.0vw;"></span>
+    <span id="sw2unstable" style="float:left;color:grey;margin-left:12%;  font-size:1.0vw;"></span>
+    <span id="sw2failure" style="float:left;color:#CC0000;margin-left:14%;font-size:1.0vw;"></span>
+  </p>
+  <br>
+  <p style="font-size: 1vw;font-weight:normal; margin-top:1%;">
+    <span  style="float:left;margin-left: 35%; ;; ">Stable</span>
+    <span  style="float:left;margin-left:12%;;; ">Unstable</span>
+    <span  style="float:left;margin-left:10%; ;;">Failure</span>
+  </p>
+  <br>
+</div>
+</div>
+
+<div class="back">
+  <button class="mat-raised-button mat-primary" routerLink="/factors/factors-res">&laquo;  Back</button>
+</div>
+
+<div class="next">
+  <button class="mat-raised-button mat-primary" routerLink="/outcome">See all calculations &raquo;</button>
+</div>
+
+

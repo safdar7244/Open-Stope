@@ -1,0 +1,21 @@
+<button tabindex="-1" mat-button class="close" 
+[mat-dialog-close]="true" style="font-size:1.5vw">x
+</button>
+
+<!-- <h1 mat-dialog-title>Select Jr that matches your condition</h1> -->
+
+<div mat-dialog-content>
+
+  <!-- <h6><i>1) Rock-wall contact, and rock-wall contact before 10 cm of shear</i></h6> -->
+
+  <div mat-dialog-actions>
+    
+    <div class="jrh">
+
+      <button value="1" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>Calculate RQD </button>
+      <button value="2" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>Reset Fields </button>
+      <button value="3" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>Repeat </button>
+    
+    </div>
+  </div>
+</div>

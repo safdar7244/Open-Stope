@@ -1,0 +1,82 @@
+<div class="row-2">
+    <div id="aFactor">
+      <canvas baseChart
+              [datasets]="barChartDataA"
+              [labels]="barChartLabels"
+              [options]="barChartOptionsA"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              [colors]="ChartColors">
+      </canvas>
+    </div>
+
+    <div id="bFactor" style="display: block;">
+      <canvas baseChart
+              [datasets]="barChartDataB"
+              [labels]="barChartLabels"
+              [options]="barChartOptionsB"
+              [plugins]="barChartPlugins"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              [colors]="ChartColors">
+      </canvas>
+    </div>
+
+    <div id="cFactor" style="display: block;">
+      <canvas baseChart
+            [datasets]="barChartDataC"
+            [labels]="barChartLabels"
+            [options]="barChartOptionsC"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="ChartColors">
+      </canvas>
+    </div>
+
+    <div id="tFactor" style="display: block;">
+      <canvas baseChart
+            [datasets]="barChartDataT"
+            [labels]="barChartLabels"
+            [options]="barChartOptionsT"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="ChartColors">
+      </canvas>
+    </div>
+
+  <div id="fFactor" style="display: block;">
+    <canvas baseChart
+          [datasets]="barChartDataF"
+          [labels]="barChartLabels"
+          [options]="barChartOptionsF"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"
+          [colors]="ChartColors">
+    </canvas>
+  </div>
+  
+  <div id="stabNumber" style="display: block;">
+    <canvas baseChart
+            [datasets]="barChartDataN"
+            [labels]="barChartLabels"
+            [options]="barChartOptionsN"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            [colors]="ChartColors">
+    </canvas>
+  </div>
+ 
+  <div class="next">
+    <button class="mat-raised-button mat-primary" routerLink="/stability" (click)="predict()">
+      predict stability &raquo;
+    </button>
+  </div>
+</div>
+
+
+

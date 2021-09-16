@@ -1,0 +1,42 @@
+<button tabindex="-1" mat-button class="close" 
+[mat-dialog-close]="true" style="font-size:1.5vw">x
+</button>
+
+<h1 mat-dialog-title>Select Ja that matches your condition</h1>
+
+<div mat-dialog-content>
+  
+  <h6><i>1) Rock-wall contact (no mineral fillings, only coatings)</i></h6>
+  
+  <div mat-dialog-actions>
+    <div class="jal">
+      
+      <button value="0.75" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>A. Tightly healed, hard, non-softening, impermeable filling,i.e., quartz or epidote <p>&#x2223; 0.75</p></button>
+      <button value="1" (click)="onClick($event)"mat-button [mat-dialog-close]="" cdkFocusInitial>B. Unaltered joint walls, surface staining only <p>&#x2223; 1.0&nbsp;&nbsp;</p></button>
+      <button value="2" (click)="onClick($event)"mat-button [mat-dialog-close]="" cdkFocusInitial>C. Slightly altered joint walls. Non-softening mineral coatings; sandy particles,clay-free disintegrated rock, etc. <p>&#x2223; 2.0&nbsp;&nbsp;</p></button>
+      <button value="3" (click)="onClick($event)"mat-button [mat-dialog-close]="" cdkFocusInitial>D. Silty- or sandy-clay coatings, small clay fraction (non-softening) <p>&#x2223; 3.0&nbsp;&nbsp;</p></button>
+      <button value="4" (click)="onClick($event)"mat-button [mat-dialog-close]="" cdkFocusInitial>E. Softening or low friction clay mineral coatings, i.e., kaolinite or mica. Also chlorite, talc gypsum, graphite, etc., and small quantities of swelling clays <p>&#x2223; 4.0&nbsp;&nbsp;</p></button>
+  
+    <div class="jaDiv">
+      <p><i>2) Rock-wall contact before 10 cm shear (thin mineral fillings)</i></p>
+    </div>
+      <button value="4" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>F. Sandy particles, clay-free disintegrated rock, etc. <p>&#x2223; 4.0&nbsp;&nbsp;</p></button>
+      <button value="6" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>G. Strongly over-consolidated, non-softening, clay mineral fillings (continuous, but &lt;5 mm thickness) <p>&#x2223; 6.0&nbsp;&nbsp;</p></button>
+      <button value="8" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>H. Medium or low over-consolidation, softening, clay mineral fillings (continuous,but &lt;5 mm thickness) <p>&#x2223; 8.0&nbsp;&nbsp;</p></button>
+      <button value="10"(click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>J. Swelling-clay fillings, i.e., montmorillonite (continuous, but &lt;5 mm thickness). Value of Ja depends on percent of swelling clay-size particles <p>&#x2223; 10.0&nbsp;</p></button>
+
+    <div class="jaDiv">
+      <p><i>3) No rock-wall contact when sheared (thick mineral fillings)</i></p>
+    </div>
+      <button value="6" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>K. Zones or bands of disintegrated or crushed rock; strongly over-consolidated <p>&#x2223; 6.0&nbsp;&nbsp;</p></button>
+      <button value="8" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>L. Zones or bands of clay, disintegrated or crushed rock; medium or low over-consolidation or softening fillings <p>&#x2223; 8.0&nbsp;&nbsp;</p></button>
+      <button value="10" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>M. Zones or bands of clay, disintegrated or crushed rock; swelling clay; Ja depends on percent of swelling clay-size particles <p>&#x2223; 10.0&nbsp;</p></button>
+      <button value="5" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>N. Zones or bands of silty- or sandy-clay, small clay fraction (non-softening) <p>&#x2223; 5.0&nbsp;</p></button>
+      <button value="10" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>O. Thick, continuous zones or bands of clay; strong over-consolidation <p>&#x2223; 10.0&nbsp;</p></button>
+      <button value="13" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>P. Thick, continuous zones or bands of clay; medium to low over-consolidation <p>&#x2223; 13.0&nbsp;</p></button>
+      <button value="16.5" (click)="onClick($event)" mat-button [mat-dialog-close]="" cdkFocusInitial>R. Thick, continuous zones or bands with clay; swelling clay.Ja depends on percent of swelling clay-size particles <p>&#x2223; 16.5&nbsp;</p></button>
+    
+    </div>
+  </div>
+</div>
+  

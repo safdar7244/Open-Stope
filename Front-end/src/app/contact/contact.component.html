@@ -1,0 +1,31 @@
+
+<h2>Contact us!</h2>
+<div class="contact">
+  <form [formGroup]="contactForm" name="contactForm">
+    <div class="form-group">
+
+      <label>First Name:</label>
+      <input class="form-control" required name="firstName" formControlName="firstName" type="text">
+
+      <label>Last Name:</label>
+      <input class="form-control" name ="lastName" formControlName="lastName" type="text">
+   
+      <label>Email:</label>
+      <input class="form-control" name ="email" formControlName="email" type="email">
+
+      <div class="subject">
+        <label>Subject</label>
+        <select class="custom-select" formControlName="subjectName" (change)="changeSubject($event)" >
+          <option value="" disabled>select a subject</option>
+          <option *ngFor="let subject of Subject" [ngValue]="subject" >{{subject}}</option>
+        </select>
+      </div>
+
+      <textarea class="form-control" name ="message" placeholder="Message..." 
+      formControlName="message" type="textarea" rows="6">
+      </textarea>
+
+      <button type="submit" (click)="messageModal($event)" [disabled]="contactForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>

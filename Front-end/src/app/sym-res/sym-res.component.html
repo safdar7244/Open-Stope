@@ -1,0 +1,53 @@
+<div id="wrapper">
+  <div id="box-area">
+    <div class="box" id="front">Hangingwall</div>
+    <div class="box" id="back">Footwall</div>
+    <div class="box" id="top">Stope Back</div>
+    <div class="box" id="bottom">Bottom</div>
+    <div class="box" id="left">Sidewall</div>
+    <div class="box" id="right">Sidewall</div>
+  </div>
+</div>
+  
+<div class="results">
+  <h4 style="font-size:1.3vw;font-weight:normal; margin-bottom: 2%;">Stope Volume <span style="float:right;color:#226556;">{{volume}} m<sup>3</sup></span></h4>
+  <table>
+    <tr style="font-size:1.3vw;">
+      <th></th>
+      <th>Crown</th>
+      <th>Hangingwall</th>
+      <th>Footwall</th>
+      <th style="border-right:none;">Sidewall</th>
+    </tr>
+
+    <tr id="hr" style="margin-bottom: 10%;">
+      <td style="padding-right:0.5%;">S Factor</td>
+      <td>{{hrCrown}} m</td>
+      <td>{{hrHang}} m</td>
+      <td>{{hrFoot}} m</td>
+      <td style="border-right:none;">{{hrSide}} m</td>
+    </tr>
+
+    <tr>
+      <td style="padding-right:0.5%;">Area</td>
+      <td>{{crownA}} m<sup>2</sup></td>
+      <td>{{hangA}} m<sup>2</sup></td>
+      <td>{{footA}} m<sup>2</sup></td>
+      <td style="border-right:none;">{{sideA}} m<sup>2</sup></td>
+    </tr>
+
+    <tr>
+      <td style="padding-right:0.5%;">Perimeter</td>
+      <td>{{crownP}} m&nbsp;</td>
+      <td>{{hangP}} m&nbsp;</td>
+      <td>{{footP}} m&nbsp;</td>
+      <td style="border-right:none;">{{sideP}} m&nbsp;</td>
+    </tr>
+
+  </table>
+</div>
+
+<div class="next">
+  <button class="mat-raised-button mat-primary" routerLink="/qvalue">Next &raquo;</button>
+</div>
+

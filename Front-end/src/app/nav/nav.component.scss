@@ -1,0 +1,65 @@
+nav {
+  ul {
+    list-style-type: none;
+    margin-top: 0;
+    padding: 0;
+    width: 4%;
+    left: 0%;
+    background-color: #333;
+    position: fixed;
+    height: 100%;
+    overflow: hidden;
+
+  #logo > li > a:hover {
+    background: none !important;
+  }
+  li a {
+    display: block;
+    text-align: center;
+    padding: auto;
+    font-size: 2vw;
+    padding: 0.5em;
+    text-decoration: none;
+    color: white;
+
+      &:hover {
+        background: #267463;
+        text-decoration: none;
+        color: white;
+      }
+
+      &.active {
+        background: #226556;
+        text-decoration: none;
+        color: white;
+      }
+  }
+  li button {
+    display: block;
+    text-align: center;
+    background-color: #333;
+    padding: auto;
+    font-size: 2vw;
+    padding: 0.5em;
+    text-decoration: none;
+    border: none;
+    outline:none !important;
+
+    i {
+      color: white;
+    }
+    &:hover {
+      background: #267463;
+      text-decoration: none;
+      border:none;
+      outline:none !important;
+    }
+    &.active {
+      background: #226556;
+      text-decoration: none;
+      border: none;
+      outline:none !important;
+    }
+  }
+}
+}

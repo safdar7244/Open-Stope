@@ -1,0 +1,32 @@
+<div class="col-40">
+  <h3 style="font-size:1.4vw; color:#474747; margin-bottom:0%; font-weight:500;">The Modified Q </h3>
+  <div id="QModified">
+    <canvas baseChart
+      [datasets]="barChartDataQ"
+      [labels]="barChartLabels"
+      [options]="barChartOptionsQ"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+      [colors]="ChartColors">
+    </canvas>
+  </div>
+
+  <div id="rqd">
+    <h3 style="font-size:1.4vw; color:#474747; margin-bottom:0%;font-weight:500;">RQD - Rock Quality Designation </h3>
+    <canvas baseChart
+      [datasets]="barChartDataRQD"
+      [labels]="barChartLabels"
+      [options]="barChartOptionsQ"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [chartType]="barChartType"
+      [colors]="ChartColors">
+    </canvas>
+  </div>
+</div>
+
+<div class="next">
+  <button class="mat-raised-button mat-primary" routerLink="/stress">Next &raquo;</button>
+</div>
+

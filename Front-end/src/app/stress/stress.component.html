@@ -1,0 +1,73 @@
+<app-tool-nav></app-tool-nav>
+<div class="bg">
+  <div class="col-40">
+    <h4>Stress Analysis</h4>
+    <p>Please select one of the options to calculate the induced stresses.</p>
+    <hr>
+
+    <form name="stressForm" #stressForm="ngForm">
+       <div class="form-group">
+       <span id="left">
+         <button (click)="enableDisableRule(1); option1();"
+           type="button" [style.background-color]="selectedIndex === 1 ? '#226556' : '#696969'" class="btn"><i class="fas fa-check" style="color:white; font-size: 1.1vw;"></i>
+         </button>
+       </span>
+       
+       <span style="display:inline-block;margin-left:0%;">
+       <label for="vertStress">Vertical stress</label>
+       <input type="number" appMinVertStress="0.01" id="vertStr" placeholder="Vertical Stress in MPa"
+              class="form-control" required ngModel [ngModel]="Aval" name="vertStr" #vertStr="ngModel" [disabled]="enableVertStress">
+         <div *ngIf="vertStr.invalid && (vertStr.dirty || vertStr.touched)" class="text-danger">
+           <div *ngIf="vertStr.errors?.appMinVertStress">*Enter a proper vertical stress.</div>
+         </div>
+       </span>
+
+       <span style="display:inline-block; margin-left: 5%;">
+       <label for="horStress">Horizontal stress</label>
+       <input type="number" appMinHorStress="0.01" id="horStr" placeholder="Horizontal Stress in MPa"
+              class="form-control" required ngModel [ngModel]="Bval" name="horStr" #horStr="ngModel" [disabled]="enableHorStress">
+         <div *ngIf="horStr.invalid && (horStr.dirty || horStr.touched)" class="text-danger">
+           <div *ngIf="horStr.errors?.appMinHorStress">*Enter a proper horizontal stress.</div>
+         </div>
+       </span>
+       </div>
+
+       <div class="form-group" style="margin-top:7%">
+       <span id ="left">
+       <button (click)="enableDisableRule(2); option2();"  
+              type="button" [style.background-color]="selectedIndex === 2 ? '#226556' : '#696969'" class="btn"><i class="fas fa-check" style="color:white; font-size: 1.1vw;"></i></button>
+       </span>
+
+       <span style="display:inline-block; margin-left:0%;">
+       <label for="depth">Excavation depth</label>
+       <input type="number" appMaxDepth="10000" appMinDepth="1" id="depth" placeholder="Depth in m" class="form-control"
+              required ngModel [ngModel]="Cval" name="depth" #depth="ngModel" [disabled]="enableDepth">
+         <div *ngIf="depth.invalid && (depth.dirty || depth.touched)" class="text-danger">
+           <div *ngIf="depth.errors?.appMinDepth">*Enter a proper excavation depth.</div>
+           <div *ngIf="depth.errors?.appMaxDepth">*Enter a proper excavation depth.</div>
+         </div>
+       </span>
+
+       <span style="display:inline-block; margin-left:5%;">
+       <label for="modulus">Elastic Modulus</label>
+       <input type="number" appMaxModulus="100" appMinModulus="1" id="modulus" placeholder="Elastic Modulus in GPa"
+              class="form-control" required ngModel [ngModel]="Dval" name="modulus" #modulus="ngModel" [disabled]="enableModulus">
+         <div *ngIf="modulus.invalid && (modulus.dirty || modulus.touched)" class="text-danger">
+           <div *ngIf="modulus.errors?.appMinModulus">*Enter a proper elastic modulus.</div>
+           <div *ngIf="modulus.errors?.appMaxModulus">*Enter a proper elastic modulus.</div>
+         </div>
+       </span>
+       </div>
+
+       <div class="calc">
+       <button class="mat-raised-button mat-primary" type ="submit" [disabled]="stressForm.invalid" (click) ="calcStress(depth.value,modulus.value, vertStr.value, horStr.value);">Calculate</button>
+       </div>
+    </form>
+  </div>
+       <div class="back">
+         <button class="mat-raised-button mat-primary" routerLink="/qvalue/q-res">&laquo;  Back</button>
+       </div>
+<router-outlet></router-outlet>
+</div>
+
+

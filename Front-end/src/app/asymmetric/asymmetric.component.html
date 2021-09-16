@@ -1,0 +1,64 @@
+<form name="asymmetricForm" #asymmetricForm="ngForm">
+
+<div class="form-group">
+<label for="stopeHeight">Stope height</label>
+<input type="number" appMaxHeight="200" appMinHeight="1" id="stopeHeight" placeholder="Stope height in m" 
+class="form-control" required ngModel [ngModel]="XstopeHeight" name="stopeHeight" #stopeHeight="ngModel" #abc>
+  <div *ngIf="stopeHeight.invalid && (stopeHeight.dirty || stopeHeight.touched)" class="text-danger">
+    <div *ngIf="stopeHeight.errors?.appMaxHeight">*Enter a proper stope height.</div>
+    <div *ngIf="stopeHeight.errors?.appMinHeight">*Enter a proper stope height.</div>
+  </div>
+</div>    
+
+<div class="form-group">
+<label for="sideTopWidth">Sidewall top width</label>
+<input type="number" appMaxSideTopWidth="100" appMinSideTopWidth="1" id="sideTopWidth" placeholder="Sidewall top width in m"
+class="form-control" required ngModel [ngModel]="XsideTopWidth" name="sideTopWidth" #sideTopWidth="ngModel">
+  <div *ngIf="sideTopWidth.invalid && (sideTopWidth.dirty || sideTopWidth.touched)" class="text-danger">
+    <div *ngIf="sideTopWidth.errors?.appMaxSideTopWidth">*Enter a proper sidewall top width.</div>
+    <div *ngIf="sideTopWidth.errors?.appMinSideTopWidth">*Enter a proper sidewall top width.</div>
+  </div>
+</div>
+
+<div class="form-group">
+<label for="sideBottomWidth">Sidewall bottom width</label>
+<input type="number" appMaxSideBottomWidth="100" appMinSideBottomWidth="1" id="sideBottomWidth" placeholder="Sidewall bottom width in m"
+class="form-control" required ngModel [ngModel]="XsideBottomWidth" name="sideBottomWidth" #sideBottomWidth="ngModel">
+  <div *ngIf="sideBottomWidth.invalid && (sideBottomWidth.dirty || sideBottomWidth.touched)" class="text-danger">
+    <div *ngIf="sideBottomWidth.errors?.appMaxSideBottomWidth">*Enter a proper sidewall bottom width.</div>
+    <div *ngIf="sideBottomWidth.errors?.appMinSideBottomWidth">*Enter a proper sidewall bottom width.</div>
+  </div>
+</div>
+
+<div class="form-group">
+<label for="sideLength">Sidewall length</label>
+<input type="number" appMaxSideLength="100" appMinSideLength="1" id="sideLength" placeholder="Sidewall length in m"
+class="form-control" required ngModel [ngModel]="XsideLength" name="sideLength" #sideLength="ngModel">
+  <div *ngIf="sideLength.invalid && (sideLength.dirty || sideLength.touched)" class="text-danger">
+    <div *ngIf="sideLength.errors?.appMaxSideLength">*Enter a proper sidewall length.</div>
+    <div *ngIf="sideLength.errors?.appMinSideLength">*Enter a proper sidewall length.</div>
+  </div>
+</div>
+
+<div class="form-group">
+<label for="fhWidth">Footwall and hangingwall width</label>
+<input type="number" appMaxFhWidth="100" appMinFhWidth="1" id="fhWidth" placeholder="FW & HW width in m"
+class="form-control" required ngModel [ngModel]="XfhWidth" name="fhWidth" #fhWidth="ngModel">
+  <div *ngIf="fhWidth.invalid && (fhWidth.dirty || fhWidth.touched)" class="text-danger"> 
+    <div *ngIf="fhWidth.errors?.appMaxFhWidth">*Enter a proper footwall & hangingwall width.</div>
+    <div *ngIf="fhWidth.errors?.appMinFhWidth">*Enter a proper footwall & hangingwall width.</div>
+  </div>
+</div>
+
+<div class="calc">
+  <button class="mat-raised-button mat-primary" [disabled]="asymmetricForm.invalid" type="submit"
+  (click)="unsymmetric(stopeHeight.value, sideTopWidth.value, sideBottomWidth.value, sideLength.value, fhWidth.value)">Calculate
+  </button>
+</div>
+
+</form>
+<router-outlet></router-outlet>
+
+  
+
+ 

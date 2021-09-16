@@ -1,0 +1,42 @@
+<form name="symmetricForm" #symmetricForm="ngForm">
+  <div class="form-group">
+    <label for="stopeHeight">Stope height</label>
+    <input type="number" appMaxHeight="200" appMinHeight="1" id="stopeHeight" placeholder="Stope height in m" 
+      class="form-control" required ngModel [ngModel]="XstopeHeight" value="12"  name="stopeHeight" #stopeHeight="ngModel" (change)="onChange($event)" >
+  
+    <div *ngIf="stopeHeight.invalid && (stopeHeight.dirty || stopeHeight.touched)" class="text-danger">
+      <div *ngIf="stopeHeight.errors?.appMaxHeight">*Enter a proper stope height.</div>
+      <div *ngIf="stopeHeight.errors?.appMinHeight">*Enter a proper stope height.</div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="sideWidth">Sidewall width</label>
+    <input type="number" appMaxSideWidth="100" appMinSideWidth="1" id="sideWidth" placeholder="Sidewall width in m"
+      class="form-control" required ngModel [ngModel]="XsideWidth" name="sideWidth" #sideWidth="ngModel">
+  
+    <div *ngIf="sideWidth.invalid && (sideWidth.dirty || sideWidth.touched)" class="text-danger">
+      <div *ngIf="sideWidth.errors?.appMinSideWidth">*Enter a proper stope sidewall width.</div>
+      <div *ngIf="sideWidth.errors?.appMaxSideWidth">*Enter a proper stope sidewall width.</div>
+    </div>
+  </div> 
+  
+  <div class="form-group">
+    <label for="fhWidth">Footwall and hangingwall width</label>
+    <input type="number" appMaxFhWidth="100" appMinFhWidth="1" id="fhWidth" placeholder="FW & HW width in m"
+      class="form-control" required ngModel [ngModel]="XfhWidth" name="fhWidth" #fhWidth="ngModel" #abc >
+  
+    <div *ngIf="fhWidth.invalid && (fhWidth.dirty || fhWidth.touched)" class="text-danger"> 
+      <div *ngIf="fhWidth.errors?.appMaxFhWidth">*Enter a proper footwall & hangingwall width.</div>
+      <div *ngIf="fhWidth.errors?.appMinFhWidth">*Enter a proper footwall & hangingwall width.</div>
+    </div>
+  </div>
+  
+  <div class="calc">
+    <button class="mat-raised-button mat-primary" type="submit" [disabled]="symmetricForm.invalid"  (click)="calculate(stopeHeight.value, sideWidth.value, fhWidth.value,$event);">Calculate</button>
+  </div>
+
+</form>
+<router-outlet></router-outlet>
+  
+  

@@ -1,0 +1,110 @@
+.mat-dialog-content {
+  overflow-y: hidden;
+  }
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #226556 !important;
+  margin-bottom: 0.5%;
+  border-width: 0.1em;
+  }
+
+::ng-deep .mat-form-field-wrapper {
+  /*change color of label*/
+  margin: -0.2em !important; 
+  padding: 0% !important; 
+}
+  
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #226556!important;
+  margin: 0%;
+  padding: 0%;
+}
+
+.select.mat-selected {
+  color: #226556 !important;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-1.1em) scale(.75);
+  width: 133.33333%;
+}
+h2 {
+  font-size: 1.1vw;
+  margin: 0%;
+  padding: 0%;
+  color: white;
+  margin-bottom: 1%;
+  margin-left:5%;
+  width: 90%;
+  text-align: center;
+  border: #226556;
+  border-radius: 0.5em;
+  background-color: #226556;
+}
+    
+p{
+  text-align: center;
+  font-size: 1.1vw;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0.2%;
+}
+
+.col-50 {
+  flex: 50%;
+  font-size: 1vw;
+  margin: 0%;
+}
+    
+#submit {
+  background-color: #226556;
+  border: none;
+  color: white;
+  width: 25%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  padding: 0.8%;
+  font-size: 1.1vw;
+  border-radius: 0.5em;
+  margin: auto;
+  margin-bottom: 2%;
+  margin-top: 1%;
+}
+
+button:focus {
+  outline:none !important;
+}
+
+.close.mat-button {
+  position:absolute;
+  top:0;
+  right: 0;
+  padding: 0.5%;
+  min-width: auto;
+  border: none;
+  text-decoration: none;
+}
+
+
+@media only screen and (max-width:1000px) {
+  #submit {
+    padding: 0%;
+    line-height: 200%;
+  }
+  h2 {
+    line-height: 200%;
+  }
+  .mat-dialog-content {
+    overflow: auto;
+    } 
+}

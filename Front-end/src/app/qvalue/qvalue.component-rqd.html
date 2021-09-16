@@ -1,0 +1,26 @@
+<button tabindex="-1" mat-button class="close" 
+[mat-dialog-close]="true" style="font-size:1.5vw">x
+</button>
+
+<h1 mat-dialog-title>Calculate RQD</h1>
+
+<div mat-dialog-content>
+
+  <p>Analyze the core sample and Sum all rock pieces equal to or greater than 100 mm. Enter the sum of rock pieces and total length of the core sample.</p>
+    <img src="assets/img/core.png" alt="Core sample" style="width:100%;">
+
+    <span id="left">
+      <label for="coreL">Sum of rock pieces' length>100 mm</label>
+      <input type="number" placeholder="Sum of length in mm" class="form-control" #myInputCore>
+    </span>
+
+    <span style="display:inline-block;">
+      <label>Total length of core sample</label>
+      <input type="number" placeholder="Total length in mm" class="form-control" #myInputTotal>
+    </span>
+
+  <div mat-dialog-actions>
+    <button id="cont" (click)="onClick(myInputCore.value,myInputTotal.value);" [mat-dialog-close]="data" cdkFocusInitial>Continue</button>
+  </div>
+
+</div>

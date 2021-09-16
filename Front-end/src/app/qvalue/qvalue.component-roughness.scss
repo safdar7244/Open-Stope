@@ -1,0 +1,106 @@
+.mat-dialog-content {
+  overflow: auto !important;
+}
+
+::-webkit-scrollbar {
+  width: 0.6em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 0.6em;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.6em;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.4vw;
+  margin: 0%;
+  padding: 0%;
+}
+
+h6 {
+  text-align: left;
+  font-weight: normal;
+  margin-bottom: 0%;
+  margin-top: 1%;
+  font-size: 1vw;
+}
+
+.jrh button {
+  display: inline-block;
+  background-color: #226556;
+  border: none;
+  width: 100%;
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  font-size: 1vw;
+  margin: 0.8% 0.4%;
+  border-radius: 0.6em;
+  padding: 1.5%;
+  padding-left: 2%;
+  margin-bottom: 1.5%;
+  &:hover {
+    background: #267463;
+    text-decoration: none;
+    color: white;
+    border: none;}
+}
+
+.jrh button:focus {
+  outline:none !important;
+}
+
+.jrh p {
+  display: block;
+  float: right;
+  text-decoration: none;
+  font-size: 1vw;
+  margin: 0%;
+  padding-right: 1%;
+  margin-right: 1%;
+}
+
+.jrNote p {
+  text-align: left;
+  font-size: 1.1vw;
+  padding: 0.5%;
+  float: left;
+}
+
+.close.mat-button {
+  position:absolute;
+  top:0;
+  right: 0;
+  padding: 0.5%;
+  min-width: auto;
+  border: none;
+  text-decoration: none;
+}
+
+@media only screen and (max-width:750px) {
+  .jrh button {
+    line-height: 180%;
+    margin: 0%;
+  }
+  .jrNote p {
+    padding: 0%;
+    margin: 0%;
+    line-height: 180%;
+  }
+  h6 {
+    line-height: 200%;
+    margin: 0%;
+    padding: 0%;
+  }
+  ::-webkit-scrollbar {
+    width: 0.3em;
+  }
+}

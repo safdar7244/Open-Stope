@@ -1,0 +1,79 @@
+<button tabindex="-1" mat-button class="close" 
+[mat-dialog-close]="true" style="font-size:1.5vw">x
+</button>
+  
+<h4 mat-dialog-title>Fault factor estimation</h4> 
+<div mat-dialog-content>
+  <p>Based on aspect ratio (stope surface width/height = {{aspectRatio}}), the stope surface is considered as {{stopeClass}}.
+  Please fill in the fields below to estimate the fault factor for {{fault_surface}}.</p>
+
+  <form name="fForm" #fForm="ngForm">
+  <div class="form-group">
+    <div class="input-group-append">
+      <label>Fault intersects stope surface</label>(
+      <select required ngModel name="intersect" id="intersect" #intersect="ngModel" (change)="selectChangeHandler1($event)"  (click)="onClick($event)" style="width:50%"> 
+        <option value="" selected>Select where fault intersects stope</option>
+        <option value="bottom">near the bottom</option>
+        <option value="top">near the top</option>
+        <option value="middle">near the centre</option>
+        <option value="nonintersection">fault does not intersect stope</option>
+      </select>
+      <i class="fas fa-info-circle" aria-hidden="true" matTooltip="This affects the stope surface stability" 
+      matTooltipPosition="right" matTooltipClass="toolTip" style="margin-top:1%;"></i>
+    </div>
+    <div *ngIf="intersect.invalid && (intersect.dirty || intersect.touched)" class="text-danger">
+      <div *ngIf="intersect.errors?.required" id="inter">*Select fault-stope intersection.</div>
+    </div>
+  </div>
+
+  <div class="form-group" style="padding-top:1%">
+    <div class="input-group-append">
+    <label>Fault friction angle</label>
+    <select style ="width:65%;" required ngModel name="friction" id="friction" #friction="ngModel" (change)="selectChangeHandler2($event)"> 
+      <option value="" selected>Select an approximate fault friction angle</option>
+      <option value="8"> ~ 8 degree</option>
+      <option value="1520"> 15-20 degree</option>
+      <option value="2030">20-30 degree</option>
+    </select>
+    <i class="fas fa-info-circle" aria-hidden="true" matTooltip="Friction angle defines the fault strength" 
+    matTooltipPosition="right" matTooltipClass="toolTip" style="margin-top:1%;"></i>
+    </div>
+    <div *ngIf="friction.invalid && (friction.dirty || friction.touched)" class="text-danger">
+      <div *ngIf="friction.errors?.required" style="margin-left:9.5%;">*Select an approximate friction angle.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+   
+    <label for="inclAngle">Included angle</label>
+    <div class="input-group-append">
+    <input type="number" appMaxStopeDip="90" appMinStopeDip="0" id="inclAngle" placeholder="Enter included angle"
+    class="form-control" ngModel name="inclAngle" #inclAngle="ngModel">
+    <i class="fas fa-info-circle" aria-hidden="true" matTooltip="Angle between fault and stope surface" 
+    matTooltipPosition="right" matTooltipClass="toolTip"></i>
+    </div>
+    <div *ngIf="inclAngle.invalid && (inclAngle.dirty || inclAngle.touched)" class="text-danger">
+      <div *ngIf="inclAngle.errors?.appMaxStopeDip" id="text-danger">*Enter a proper included angle.</div>
+      <div *ngIf="inclAngle.errors?.appMinStopeDip" id="text-danger">*Enter a proper included angle.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="faultDist">The minimum distance from fault to stope</label>
+    <div class="input-group-append">
+    <input type="number" id="faultDist" placeholder="Enter minimum distance in m"
+    class="form-control" ngModel name="faultDist" #faultDist="ngModel">
+    <i class="fas fa-info-circle" aria-hidden="true" matTooltip="When fault does not intersect stope surface" 
+    matTooltipPosition="right" matTooltipClass="toolTip"></i>
+    </div>
+      <div *ngIf="faultDist.invalid && (faultDist.dirty || faultDist.touched)" class="text-danger">
+      <div *ngIf="faultDist.errors?.required" id="text-danger">*Enter a minimum distance between fault and stope.</div>
+    </div>
+  </div>
+  <button class="mat-raised-button mat-primary" id ="calc" [disabled]="fForm.invalid" 
+    (click)="calcFault(inclAngle.value, faultDist.value, intersect.value, friction.value);" 
+    [mat-dialog-close]="true">Calculate
+  </button>
+
+  </form>
+</div>

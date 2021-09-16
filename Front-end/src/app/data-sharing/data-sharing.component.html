@@ -1,0 +1,135 @@
+<button tabindex="-1" mat-button class="close" 
+  [mat-dialog-close]="true" style="font-size:1.5vw">x
+</button>
+
+<h2 mat-dialog-title>
+  Case history data
+</h2>
+
+<mat-dialog-content [formGroup]="shareForm" name="shareForm" style="font-size:1vw;" >
+  <p>Please fill the below fields. For stability graph factors, enter the modified factors.</p>
+  <div class="row">
+    <div class="col-50">
+      <p>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Underground Mine</mat-label>
+          <input required matInput placeholder="Enter mine name" formControlName="mine" type="text" #input1>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-select required style="font-size:1vw;" placeholder="Select mining method"
+          formControlName="method" #input2>
+            <mat-option value="STOPING" class="select">Open Stoping</mat-option>
+            <mat-option value="CUTFILL" class="select">Cut & Fill</mat-option>
+            <mat-option value="SHRINKAGE" class="select">Shrinkage Stoping</mat-option>
+            <mat-option value="LONGWALL" class="select">Longwall</mat-option>
+            <mat-option value="ROOMPILLAR" class="select">Room & Pillar</mat-option>
+            <mat-option value="CAVING" class="select">Block Caving</mat-option>
+            <mat-option value="VCR" class="select">VCR Stoping</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Q' value</mat-label>
+          <input required matInput placeholder="Enter modified Q" formControlName="Qvalue" type="number" #input3>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Joint defect factor (B)</mat-label>
+          <input required matInput placeholder="Enter factor B" formControlName="factorB" type="number" #input4>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Time Factor (T)</mat-label>
+          <input required matInput placeholder="Enter factor T" formControlName="factorT" type="number" #input5>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Hydraulic Radius (HR)</mat-label>
+          <input required matInput placeholder="Enter hydraulic radius" formControlName="hr" type="number" #input6>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-select required style="font-size:1vw;" placeholder="Select stope surface"
+          formControlName="surface" #input7>
+            <mat-option value="Crown" class="select">Crown</mat-option>
+            <mat-option value="HW" class="select">Hangingwall</mat-option>
+            <mat-option value="FW" class="select">Footwall</mat-option>
+            <mat-option value="SW1" class="select">Sidewall 1</mat-option>
+            <mat-option value="SW2" class="select">Sidewall 2</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+    </div>
+<!--Second column-->
+  <div class="col-50">
+    <p> 
+      <mat-form-field appearance="outline">
+        <mat-label>Mine Location</mat-label>
+        <input required matInput placeholder="Enter mine location" formControlName="location" type="text" #input8>
+      </mat-form-field>
+    </p>
+    <p> 
+      <mat-form-field appearance="outline">
+        <mat-select required placeholder="Select orebody type"
+        formControlName="orebody" #input9>
+          <mat-option value="MASSIVE" class="select">Massive</mat-option>
+          <mat-option value="NARROWVEIN" class="select">Narrow Vein</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Stress factor (A)</mat-label>
+        <input required matInput placeholder="Enter stress factor" formControlName="factorA" type="number" #input10>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Gravity factor (C)</mat-label>
+        <input required matInput placeholder="Enter gravity factor" formControlName="factorC" type="number" #input11>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Fault factor (F)</mat-label>
+        <input required matInput placeholder="Enter fault factor" formControlName="factorF" type="number" #input12>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label style="font-size:1vw;">Modified Stability Number (N')</mat-label>
+        <input required matInput placeholder="Enter modified stability number" formControlName="stabilityNumber" type="number" #input13>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-select required style="font-size:1vw;" placeholder="Select stability outcome"
+        formControlName="outcome" #input14>
+          <mat-option value="STABLE" class="select">Stable</mat-option>
+          <mat-option value="UNSTABLE" class="select">Unstable</mat-option>
+          <mat-option value="FAILURE" class="select">Failure</mat-option>
+          <mat-option value="CAVING" class="select">Caving</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+  </div>
+</div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+  <button id="submit" (click)="submit(input1.value,input2.value,input3.value,input4.value,input5.value,input6.value,input7.value,input8.value,input9.value,input10.value,input11.value,input12.value,input13.value,input14.value)" [disabled]="shareForm.invalid" 
+  class="mat-raised-button mat-primary">Submit
+  </button>
+
+</mat-dialog-actions>
+        
+ 

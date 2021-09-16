@@ -1,0 +1,1038 @@
+<div class="about">
+  <section>
+  <h2 style="margin-top:2%; text-align:center; margin-bottom:2%;">Open Stope Stability Graph Method</h2>
+  
+  <div id="toc_container">
+    <p class="toc_title">Table of Content</p>
+    <ul class="toc_list">
+      <!-- <a href="cryptic-wave-16119.herokuapp.com/download" >Click me </a> -->
+      <nav>
+        
+    <li><a href="/about#Stability_Graph">1. The Stability Graph</a>
+      <ul>
+        <li><a href="/about#Original_Stability_Graph">1.1. The Original Stability Graph</a></li>
+        <li><a href="/about#Modified_Stability_Graph">1.2. The Modified Stability Graph</a></li>
+        <li><a href="/about#Extended_Stability_Graph">1.3. The Extended Stability Graph</a></li>
+        <li><a href="/about#Refined_Stability_Graph">1.4. The Refined Stability Graph</a></li>
+      </ul>
+    </li>
+
+    <li><a href="/about#Shape_Factor">2. Shape Factor</a>
+      <ul>
+        <li><a href="/about#HR_regular">2.1. Hydraulic radius calculation for regular stopes</a></li>
+        <li><a href="/about#HR_irregular">2.2. Hydraulic radius calculation for irregular stopes</a></li>
+      </ul>
+    </li>
+
+    <li><a href="/about#Modified_Q">3. Modified Q (Q')</a>
+      <ul>
+        <li><a href="/about#RQD">3.1. Rock Quality Designation (RQD)</a></li>
+        <li><a href="/about#Jn">3.2. Joint Sets</a></li>
+        <li><a href="/about#Jr">3.3. Joint Roughness</a></li>
+        <li><a href="/about#Ja">3.4. Joint Alteration</a></li>
+      </ul>
+    </li>
+
+    <li><a href="/about#Adjustment_Factors">4. Adjustment Factors</a>
+      <ul>
+        <li><a href="/about#Factor_A">4.1. Stress Factor (A)</a>
+        <ul>
+          <li><a href="/about#Hor_Vert_Stresses">4.1.1. Estimation of Vertical and Horizontal Stresses</a></li>
+          <li><a href="/about#Induced_Stress">4.1.2. Induced Stress Calculation</a></li>
+          <li><a href="/about#Both_Stress_Factor">4.1.3. Original and Modified Stress Factor Calculation</a></li>
+        </ul>
+      </li>
+        <li><a href="/about#Factor_B">4.2. Joint Defect Factor (B)</a></li>
+        <li><a href="/about#Factor_C">4.3. Gravity Factor (C)</a></li>
+        <li><a href="/about#Factor_T">4.4. Time Factor (T)</a></li>
+        <li><a href="/about#Factor_F">4.5. Fault Factor (F)</a></li>
+      </ul>
+    </li>
+
+    <li><a href="/about#SG_Database">5. Stability Graph Database</a></li>
+    <li><a href="/about#SG_Variations">6. Stability Graph Variations</a>
+      <ul>
+        <li><a href="/about#ELOS">6.1. ELOS Graph for Dilution Estimations</a></li>
+        <li><a href="/about#SG_Cablebolt_Design">6.2. The Stability Graph for Cablebolt Design</a></li>
+        <li><a href="/about#Risk_based_SG">6.3. Risk-based Stability Graph</a></li>
+      </ul>
+    </li>
+
+    <li><a href="/about#SG_Transition_Zones">7. Transition Zones on the Stability Graph</a></li>
+    <li><a href="/about#SG_Statistical_Analysis">8. Statistical Analysis of the Stability Graph</a></li>
+    <li><a href="/about#SG_Limitations">9. Limitations of the Stability Graph</a></li>
+    <li><a href="/about#Reference">10. Reference</a></li>
+      </nav>
+    </ul>
+  </div>
+    
+    
+    <div class="content">
+    <h2 id="Stability_Graph">The Stability Graph</h2>
+    <hr>
+    <p>The stability graph method was introduced four decades ago by Mathews et al. <a href="/about#ref-1">[1]</a> and 
+became popular after modification by Potvin <a href="/about#ref-2">[2]</a>. It is used to estimate the stability 
+state of the open stopes in underground mines, which are large non-entry voids designated 
+to mass extraction of ores. The critical review on the stability graph, its evolution and limitations 
+can be found in <a href="/about#ref-3">[3]</a>.
+    </p>
+  
+    <h2 id="Original_Stability_Graph">The Original Stability Graph</h2>
+    <hr>
+    <p>With the technological development and potential of large blast holes, open stoping has become economically 
+attractive. However, even if some dilution caused by rock failure from walls or roof is tolerable, increased 
+stope sizes increase the instability of the open stopes and lead to potential excessive dilution, 
+consequently, resulting in high cost. Mathews et al. (1981) <a href="/about#ref-1">[1]</a> conducted an empirical study to determine if
+there is a relationship between rockmass characteristics, mining depth and stability of open stopes. As a 
+result of this research work, the stability graph was developed based on 26 data from three mines to predict
+the stability state of stopes. The axes of the stability graph are defined according to equations (1) and (3). 
+The graph is a plot of a stability number, N, against a shape factor (S), also referred to as hydraulic radius, 
+HR. It is demonstrated in Figure 1.
+    </p> 
+    <table style="text-align: center; margin-left: 30%;">
+      <tr>
+        <td> <div [appMath]>
+          $$N' = Q' \times A \times B \times C$$  
+        </div></td>
+        <td>(1)</td>
+      </tr>
+      <tr>
+        <td> <div [appMath]="Eq2"></div></td>
+        <td>(2)</td>
+      </tr>
+      <tr>
+        <td> <div [appMath]="Eq3"></div></td>
+        <td>(3)</td>
+      </tr>
+    </table>
+    <p>Where Q’ is a modified Q <a href="/about#ref-4">[4]</a>, defined by rock quality designation (RQD), joint set number (Jn), joint 
+roughness number (Jr), and joint alteration number (Ja). A, B and C are stability number adjustment factors 
+such as stress factor, joint defect factor, and gravity factor, respectively. Figure 2 illustrates the 
+method of defining the original adjustment factors A, B and C.
+    </p>
+
+  <div style="text-align: center;">
+    <img src="assets/img/Figure 1.jpg" alt="The conventional stability graph" style="width:30%;">
+    <p>Figure 1. The conventional stability graph <a href="/about#ref-5">[5]</a>.</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <img src="assets/img/Figure 2.png" alt="Original stability number adjustment factors" style="width:50%;">
+    <p>Figure 2. Original stability number adjustment factors <a href="/about#ref-1">[1]</a>.</p>
+  </div>
+  
+  <h2 id="Modified_Stability_Graph">The Modified Stability Graph</h2>
+  <hr>
+  <p>Although the stability graph concepts were well established by Mathews’ et al. (1981), further refinement 
+of the method was necessary because of insufficient data to confirm the reliability of the graph to use as 
+a stope stability prediction tool. Seven years later, Potvin <a href="/about#ref-2">[2]</a> modified the stability graph by increasing 
+the initial data to 175 case histories from 34 mines and re-calibrating the adjustment factors. The modified 
+stability graph is given in Figure 3.
+  </p>
+  
+  <div style="text-align: center;">
+    <img src="assets/img/Figure 3.jpg" alt="The modified stability graph" style="width:30%;">
+    <p>Figure 3.  The modified stability graph <a href="/about#ref-2">[2]</a>.</p>
+  </div>
+  
+  <p>Stewart and Forsyth (1995) <a href="/about#ref-6">[6]</a> criticized Potvin for using the word “cave” for an essentially unstable 
+zone. Moreover, after a review of both Mathew’s and Potvin’s stability graphs, authors <a href="/about#ref-6">[6]</a> argued that 
+the former’s hypothesis was reasonably good proven by additional data, while the latter’s modification 
+to the adjustment factors may lead to overconfidence in stope prediction. However, as Suorineni (2010) 
+<a href="/about#ref-3">[3]</a> notes the reliability of the empirical method increases with data size and quality, so added data by 
+Potvin to the initial stability graph makes it more reliable. Currently, the modified stability 
+graph by Potvin is the preferred stope stability prediction method used by practitioners and mine engineers in 
+Canada.
+  </p>
+  
+  <h2 id="Extended_Stability_Graph">The Extended Stability Graph</h2>
+  <hr>
+  <p>Trueman and his colleagues extended the stability graph database from 175 cases to 483 case histories <a href="/about#ref-7">[7]</a>. 
+It should be noted, however, that the added data came from both entry and non-entry mining methods. With 
+additional data, the range of the stability graph components has become broader. Modified Q value is between
+0.01 and 90, shape factor ranges from 1 m to 55 m, the calculated stability number varies between 0.005 and
+700 [<a href="/about#ref-7">7</a>, <a href="/about#ref-8">8</a>, <a href="/about#ref-9">9</a>]. The authors used logistic regression with a log-log form to produce the extended stability 
+graph. As it is seen in Figure 4, the transition zone is clearer in the log-log form. Using regression 
+analysis, the stability state of the open stope surfaces was defined probabilistically in the transition 
+zones. Despite these advantages of the extended stability graph, it is limited by the stability number 
+being estimated using the original adjustment factors proposed by Matthews et al. (1981) <a href="/about#ref-3">[3]</a>. It is also 
+problematic because the authors combined entry and non-entry stope mining methods. The authors of the 
+extended stability graph gave a preference to the original adjustment factors stating that there is no 
+difference in predicting open stope stability state estimated using the original and modified stability 
+number factors. A mixed database from entry and non-entry mining methods and using original adjustment 
+factors in the extended stability graph pose a challenge to compare and combine the extended and modified 
+stability graphs. Inclusion of the continuous caving data to the extended stability graph development is also misleading since the 
+factors considered critical for open stope stability by the original developers of the method are not same 
+for continuous caving in caving mining methods.
+  </p>
+  
+  <div style="text-align: center;">
+    <img src="assets/img/Figure 4.jpg" alt="The extended stability graph" style="width:60%;">
+    <p>Figure 4. The extended stability graph <a href="/about#ref-7">[7]</a></p>
+  </div>
+  
+  <p>Considering the application of the modified and extended stability graphs in the mining industry, 
+both methods are integrated into the web-based open stope design tool to give a choice to users.
+  </p>
+  
+  <h2 id="Refined_Stability_Graph">The Refined Stability Graph</h2>
+  <hr>
+  <p>The extended stability graph is inconsistent due to mixed database, which comes from both open stoping and 
+entry-type mining methods <a href="/about#ref-7">[7]</a>. Additionally, use of the original factors in calculation of the stability number 
+puts barrier to compare and combine the modified and extended stability graphs <a href="/about#ref-3">[3]</a>. To eliminate these 
+drawbacks of the extended stability graph, the extended stability graph was refined on the basis of revised
+database, modified factors and applying logistic regression. The refined stability graph is shown in Figure 5.
+It is a recommended version of the stability graph that should be referred to when estimating the stability
+of open stopes. More information on the refined stability graph can be found in <a href="/about#ref-10">[10]</a>.
+  </p>
+
+  <div style="text-align: center;">
+    <img src="assets/img/Figure 5.png" alt="The refined stability graph" style="width:60%;">
+    <p>Figure 5.  The refined stability graph <a href="/about#ref-10">[10]</a>.</p>
+  </div>
+  
+  <h2 id="Shape_Factor">Shape Factor</h2>
+  <hr>
+  <p>Shape factor is incorporated into the stability graph to account for stope geometry. It is also termed
+as a hydraulic radius and calculated using Eq. (3). The hydraulic radius is not always suitable for 
+rectangular stope walls. Two stope hangingwalls (HWs) with different sizes can result in equal hydraulic
+radius. For example, HW with 18 m height and 30 m strike length and another HW with 25 m height and 20.5 m 
+strike have an equal HR of 5.63 m. The different horizontal and vertical elongation of stope surface has 
+a different impact on dilution due to induced stresses. The dilution from a taller (vertical) rectangular 
+stope surface is greater than from a shorter (horizontal) rectangular wall because of unfavorable induced 
+stress conditions. Suorineni (2010) <a href="/about#ref-3">[3]</a> suggests aspect ratio application to distinguish between stope 
+walls with equal HR and different surface dimensions. The aspect ratio is a ratio of stope surface strike 
+length and the true height of the stope. In the above example, two stope walls have aspect ratios of 1.67 
+and 0.82, respectively.  
+One more disadvantage of shape factor is that it cannot account for the irregular shape and complex 
+geometries of the stopes. As an alternative, Milne et al. (2004) <a href="/about#ref-11">[11]</a> proposed the effective radius factor
+(ERF) in Eq. (4), which is modified from hydraulic radius.
+  </p>
+      
+  <table style="text-align: center; margin-left:40%;">
+    <tr>
+      <td> <div [appMath]="Eq4"></div></td>
+      <td style="padding-left:42%;">(4)</td>
+    </tr>
+  </table>
+
+  <p>r<sub>&Theta;</sub> is a distance from stope wall center to the stope boundaries at equal angles.
+  </p> 
+  
+  <h2 id="HR_regular">Hydraulic Radius Calculation for regular stopes</h2>
+  <hr>
+  <p>By regular stope, it is assumed that the stope is a rectangular prism as in Figure 6. H refers to the 
+stope height, a and b are sidewall width and footwall and hangingwall width, respectively, in Figure 6 
+below.
+  </p>
+  
+  <div style="text-align: center;">
+    <img src="assets/img/Figure 6.png" alt="Symmetric stope" style="width:20%;">
+    <p>Figure 6. Stope geometry for symmetric cases.</p>
+  </div>
+
+  <p>Hydraulic radius for symmetric stope surface is estimated according to Eq. (5.1), (5.2), and (5.3).</p>
+  <table style="text-align: center; margin-left:30%;">
+  <tr>
+    <td> <div [appMath]="Eq51"></div></td>
+    <td>(5.1)</td>
+  </tr>
+
+  <tr>
+    <td> <div [appMath]="Eq52"></div></td>
+    <td>(5.2)</td>
+  </tr>
+
+  <tr>
+    <td> <div [appMath]="Eq53"></div></td>
+    <td>(5.3)</td>
+  </tr>
+</table>
+
+  <h2 id="HR_irregular">Hydraulic Radius Calculation for irregular stopes</h2>
+  <hr>
+  <p>Irregular stopes assume stopes are trapezoidal prisms as in Figure 7. Hydraulic radius for asymmetric 
+stope surface is calculated according to Eq. (6.1) – (6.4)
+  </p>
+      
+  <div style="text-align: center;">
+    <img src="assets/img/Figure 7.png" alt="Asymmetric stope" style="width:20%;">
+    <p>Figure 7. Stope geometry for asymmetric cases.</p>
+  </div>
+  <table style="text-align: center; margin-left:30%;">
+    <tr>
+      <td> <div [appMath]="Eq51"></div></td>
+      <td>(6.1)</td>
+    </tr>
+    <tr>
+      <td> <div [appMath]="Eq62"></div></td>
+      <td>(6.2)</td>
+    </tr>
+    <tr>
+      <td> <div [appMath]="Eq63"></div></td>
+      <td>(6.3)</td>
+    </tr>
+    <tr>
+      <td> <div [appMath]="Eq64"></div></td>
+      <td>(6.4)</td>
+    </tr>
+  </table>
+
+  <p>The radius factor discussed above was not included in to the web-tool to calculate the asymmetric 
+stope shape factor because its use is impractical.
+  </p>
+      
+  <h2 id="Modified_Q">Modified Q (Q')</h2>
+  <hr>
+  <p>Q-System for the rockmass characterization was developed by Barton, Lien and Lunde (1974) <a href="/about#ref-4">[4]</a> based on
+212 case records for tunnel support recommendations. Rock mass quality index (Q) has been modified by 
+setting stress reduction factor and joint water reduction factor to one. Modified Q is calculated using 
+Eq. (2). Rock mass quality index categories are given in Table 1.
+  </p>
+      
+<div style="text-align: center;">
+  <p>Table 1. Rock mass quality index categories for modified Q (Q’) ranges <a href="/about#ref-4">[4]</a>.</p>
+  <img src="assets/img/Table 1.jpg" alt="Modified Q rating" style="width:35%;">
+</div>
+  
+  
+<h2 id="RQD">Rock Quality Designation (RQD)</h2>
+<hr>
+<p>RQD stands for rock quality designation and it is a percent indicator of intact rock extracted from a 
+borehole <a href="/about#ref-12">[12]</a>. It is calculated following Eq. (7).
+</p>
+      
+<table style="text-align: center; margin-left:30%;">
+  <tr>
+    <td> <div [appMath]="Eq7"></div></td>
+    <td style="padding-left:15%;">(7)</td>
+  </tr>
+</table>
+  
+<h2 id="Jn">Joint Sets</h2>
+<hr>
+<p>Joint set values (Jn) are assigned according to the number of joint sets and presence of random joints.
+Joint set number is identified using the stereographic plots, then appropriate Jn value is taken from
+Table 2.
+</p>
+        
+<div style="text-align: center;">
+  <p>Table 2. Jn description and rating <a href="/about#ref-13">[13]</a>.</p>
+  <img src="assets/img/Table 2.jpg" alt="Jn description and rating" style="width:50%;">
+</div>
+  
+<h2 id="Jr">Joint Roughness</h2>
+<hr>
+<p>Joint roughness (Jr) is associated with the conditions of joint wall surfaces and is evaluated from Table 3.
+</p>
+
+<div style="text-align: center;">
+  <p>Table 3. Jr description and rating <a href="/about#ref-13">[13]</a>.</p>
+  <img src="assets/img/Table 3.jpg" alt="Jr description and rating" style="width:50%;">
+</div>
+  
+<h2 id="Ja">Joint Alteration</h2>
+<hr>
+<p>Joint alteration (Ja) is related to the joint infilling material that affects the rock strength. The detailed
+description of the Ja number is given in Table 4.
+</p>
+
+<div style="text-align: center;">
+  <p>Table 4. Ja description and rating <a href="/about#ref-13">[13]</a>.</p>
+  <img src="assets/img/Table 4.jpg" alt="Ja description and rating" style="width:50%;">
+</div>
+
+<h2 id="Adjustment_Factors">Adjustment Factors</h2>
+<hr>
+<p>Factors A, B and C were incorporated into the stability number calculation to account for the effect of 
+stress, joint orientation and gravity, respectively. With the increased data by Potvin, the initial graphs 
+for these factors were modified, subsequently led to the modified stability number N’. Experience with the 
+application of these factors indicates that stress and gravity factors still need to be reconsidered and
+re-defined. The different case histories on mine site reveal that faults/shear zones near open 
+stopes, stand-up time of the stopes and blasting also affect the stope stability and need to be accounted 
+for. 
+</p>
+
+<p> To date, one group of thought prefers to use the original adjustment factors to calculate the stability 
+number [<a href="/about#ref-6">6</a>, <a href="/about#ref-7">7</a>, <a href="/about#ref-9">9</a>], 
+while another group favors the modified stability number factors [<a href="/about#ref-2">2</a>, <a href="/about#ref-3">3</a>]. However, it is 
+known that the original adjustment factors were developed based on 26 case histories from one mine, 
+whereas Potvin used 175 case data from three mines to modify the adjustment factors. Considering that the 
+empirical method reliability increases with the size and quality of the data, it is reasonable to give a 
+preference to use of modified adjustment factors.
+</p>
+     
+<h2 id="Factor_A">Stress Factor (A)</h2>
+<hr>
+<p>Factor A reflects the effect of induced stress and ranges from 0.1 to 1 for highly loaded and destressed
+rockmass according to Potvin’s modifications (see Figure 8a). Suorineni (2010) <a href="/about#ref-3">[3]</a> states that the stress
+factor is flawed in that it does not include tension, which also causes rock failure. Additionally,
+stress factor has a controversial meaning and should consider the effects of gravity factor as 
+discussed in <a href="/about#ref-3">[3]</a>. Diederichs and Kaiser (1999) <a href="/about#ref-14">[14]</a> 
+proposed a new stress factor graph shown in Figure 8b to account for tensile stress. However, this chart needs to be verified because there
+is still no consideration of “partial relaxation and moderate stresses in blocky rock mass” <a href="/about#ref-3">[3]</a>. 
+Later, Mitri, Hughes, and Zhang (2011) <a href="/about#ref-15">[15]</a> also developed a new graph for determination of a new
+stress factor to incorporate tension. It was based on asymptotic function and is illustrated in 
+Figure 8c. It is seen from the chart that the maximum value of the new factor A is reached when 
+the maximum stress to compressive strength ratio is 0.3. The authors explained this peak value by
+a brittle Hoek-Brown damage initiation criterion proposed by Martin (1997) <a href="/about#ref-16">[16]</a>, which states stress
+induced failure initiates at loads approximately one third of the UCS. Moreover, another argument 
+was the fairly close location of peak value to the one in the original graph.
+</p>
+<p>Vallejos et al. (2016) <a href="/about#ref-17">[17]</a> used contingency matrix and performance metrics to analyze the significance 
+of adjustment factors in the stability graph. The researchers found that Peirce Skill Score (PSS), which
+is a measure of performance model, for factor A proposed by Mitri, Hughes, and Zhang (2011) <a href="/about#ref-15">[15]</a> is low.
+Subsequently, Vallejos et al. (2016) <a href="/about#ref-17">[17]</a> proposed a new stress factor with a slight difference from 
+the original stress factor graph, but with high influence on stability state boundaries in the stability
+graph (see Figure 8d). The authors assure that the modified stress factor increases the admissible 
+shape factor, consequently, increasing the stope size. Vallejos, Delonca, and Perez (2018) <a href="/about#ref-18">[18]</a> also
+developed the below condition for stress factor considering the effect of three-dimensional stress 
+using numerical modeling. However, they did not account for tension.
+</p>
+
+<table style="text-align: center; margin-left: 25%;">
+  <tr>
+    <td> <div [appMath]="Eq8"></div></td>
+    <td style="padding-left:15%;">(8)</td>
+  </tr>
+</table>
+
+<p>Various works were accomplished on development of a new stress factor graph. However, none of them 
+incorporates the gravity factor effect. Also, new stress factor graphs have not yet been widely tested 
+by case data and accepted by practitioners. 
+</p>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 8-1.jpg" alt="Stress Factor graphs" style="width:60%;">
+  <p><span style="margin-right: 10%;">a)	Modified by Potvin (1988) <a href="/about#ref-2">[2]</a>.</span> 
+  <span style="margin-right: 5%;">b)	Incorporates tension <a href="/about#ref-14">[14]</a>.</span></p>
+  <img src="assets/img/Figure 8-2.jpg" alt="Stress Factor graphs" style="width:60%;">
+  <p><span style="margin-right: 3%;">c)	Proposed by Mitri, Hughes, and Zhang (2011) <a href="/about#ref-15">[15]</a>.</span> 
+  <span style="margin-right: 3%;">d)	Proposed by Vallejos et al. (2016) <a href="/about#ref-17">[17]</a>.</span></p>
+  <p>Figure 8. Variations of stress factor graph.</p>
+</div>
+  
+<h2 id="Hor_Vert_Stresses">Estimation of Vertical and Horizontal Stresses</h2>
+<hr>
+<p>It is often when the vertical and horizontal stresses are unknown in the prefeasibility and feasibility
+stages of a mining project. In this case, induced stresses can be calculated using Young’s Modulus and 
+excavation depth. Particularly, the vertical stress is computed from Eq. (9) taken from <a href="/about#ref-19">[19]</a>. This equation 
+represents the empirical relationship between the vertical stress and excavation depth shown in 
+Figure 9.1. 
+</p>
+
+<table style="text-align: center; margin-left: 40%;">
+<tr>
+  <td> <div [appMath]>
+    $$\sigma_v= 0.027 \times z$$  
+  </div></td>
+  <td style="padding-left:30%;">(9)</td>
+</tr>
+</table>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 9.1.jpg" alt="Vertical stress graph" style="width:30%;">
+  <p>Figure 9.1. Vertical stress measurements <a href="/about#ref-19">[19]</a>.</p>
+</div>
+
+<p>Horizontal stress is computed in two steps. First, Figure 9.2 is used to find k value from known Young’s
+Modulus and excavation depth. Then, using the estimated vertical stress and k value, horizontal stress can
+be computed.
+</p>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 9.2.png" alt="Horizontal Stress graph" style="width:30%;">
+  <p>Figure 9.2. Ratio of horizontal to vertical stress for different Young’s Modulus <a href="/about#ref-20">[20]</a>.</p>
+</div>
+
+<h2 id="Induced_Stress">Induced Stress Calculation</h2>
+<hr>
+<p>It is necessary to find the induced stress to calculate the stress factor A. There are two ways to find
+the induced stresses. To find the ultimate induced stress, it is necessary to measure the vertical and 
+horizontal stresses or excavation depth and Young’s Modulus. The detailed diagram of reaching induced 
+stress calculation is given in Figure 10. Using two inputs, both vertical and horizontal components of
+the stress can be computed. Then, these stresses along with k value (ratio of horizontal stress and 
+vertical stress) and height to span ratio are used to calculate the induced stress. 
+</p>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 10.png" alt="The diagram for induced stress calculation" style="width:25%;">
+  <p>Figure 10. The diagram for induced stress calculation</p>
+</div>
+
+<p>The induced stress estimation is based on original Mathews calculations and uses plot shown in Figures
+11 for hangingwall and footwall and Figure 12 for stope back and sidewalls <a href="/about#ref-1">[1]</a>. The induced stress needs
+to be calculated at the center of the stope surface. In-situ stresses are computed from the height to 
+span ratio and ratio of horizontal and vertical stresses (k value). It should be noted that the negative
+value in below graph implies tension on the hangingwall and footwall, and subsequently, cause stress 
+factor to be 1 for this case.  
+</p>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 11.png" alt="The graph for estimation of induced stress in the hanging and footwalls" style="width:40%;">
+  <p>Figure 11. The graph for estimation of induced stress in the hangingwall and footwall <a href="/about#ref-1">[1]</a>.</p>
+</div>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 12.png" alt="The graph for estimation of induced stress in the stope back and sidewall" style="width:40%;">
+  <p>Figure 12. The graph for estimation of induced stress in the stope back and sidewall <a href="/about#ref-1">[1]</a>.</p>
+</div>
+
+<h2 id="Both_Stress_Factor">Original and Modified Stress Factor Calculation</h2>
+<hr>
+<p>The original and modified stress factors are calculated using Figures 2a and 8a, respectively.
+The equivalent formulae of these graphs are given below.</p>
+<p>The equations to compute the original stress factor: </p>
+
+<table style="text-align: center; margin-left: 30%;">
+  <tr>
+    <td> <div [appMath]="Eq101"></div></td>
+    <td>(10.1)</td>
+  </tr>
+
+  <tr>
+    <td> <div [appMath]="Eq102"></div></td>
+    <td>(10.2)</td>
+  </tr>
+</table>
+
+<p>The equations for the modified stress factor: </p>
+<table style="text-align: center; margin-left: 30%;">
+  <tr>
+    <td> <div [appMath]="Eq103"></div></td>
+    <td>(10.3)</td>
+  </tr>
+  <tr>
+    <td> <div [appMath]="Eq104"></div></td>
+    <td>(10.4)</td>
+  </tr>
+  <tr>
+    <td> <div [appMath]="Eq105"></div></td>
+    <td>(10.5)</td>
+  </tr>
+</table>
+
+<p>In above equations, &sigma;<sub>c</sub> is an intact rock uniaxial compressive strength (UCS), while &sigma;<sub>1</sub> is an 
+estimated induced stress. 
+</p>
+
+<h2 id="Factor_B">Joint Defect Factor (B)</h2>
+<hr>
+<p>Factor B in the stability number estimation is included to account for the presence of critical 
+structures as joints, bedding planes and foliation <a href="/about#ref-21">[21]</a>. The joint defect factor is defined by the 
+orientation of critical joints relative to stope surface from Figure 13a. Melo, Pinto, and Dutra (2014) 
+<a href="/about#ref-22">[22]</a> applied modified factor B to Brazilian Mines and found that it is poorly applicable to footwalls. 
+Bewick and Kaiser (2009) <a href="/about#ref-23">[23]</a> applied numerical modeling to assess the Factor B and obtained the graph shown in Figure 13b. B factor curves derived from numerical and empirical methods have a considerable 
+difference between angles 0 and 40. Suorineni (2010) <a href="/about#ref-3">[3]</a> states this is due to pre-model setting in 
+numerical analysis, for example, joint spacing of 2 m is unusual for common stopes. From Figure 13b, 
+the difference between original and modified B factors can also be observed. This is important to note 
+because Trueman and Mawdesley (2003) <a href="/about#ref-7">[7]</a> refined the stability graph based on original adjustment factors 
+considering there is no significant difference between original and modified factors. 
+</p>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 13.jpg" alt="Variations of factor B graph" style="width:60%;">
+  <p><span style="margin-right: 1%;">a) Joint orientation factor B <a href="/about#ref-2">[2]</a>.</span> 
+  <span style="margin-left: 5%;">b) Numerical modeling result of Factor B <a href="/about#ref-23">[23]</a>.</span></p>
+  <p>Figure 13. Variations of factor B graph</p>
+</div>
+
+<p>The difference between the original and modified joint defect factors is visualized in Figure 14. 
+It can be noted the main difference is between 0 and 60⁰.  
+</p>
+
+<div style="text-align: center;">
+    <img src="assets/img/Figure 14.png" alt="The comparison of original and modified joint defect factors" style="width:40%;">
+<p>Figure 14. The comparison of the original and modified joint defect factors.</p>
+</div>
+
+<p>For estimation of the original and modified factor B, numerical equivalents from Figure 14 are derived
+for each factor B version. The original factor B is determined using the Eq. (11.1) through (11.4). 
+For the modified factor B, quantitative equivalents are expressed by Eq. (12.1) and (12.4). 
+</p>
+
+<p>The equations to compute the original joint defect factor:</p>
+<table style="text-align: center; margin-left: 30%;">
+  <tr>
+    <td> <div [appMath]="Eq111"></div></td>
+    <td>(11.1)</td>
+  </tr>
+  <tr>
+    <td> <div [appMath]="Eq112"></div></td>
+    <td>(11.2)</td>
+  </tr>
+  <tr>
+    <td> <div [appMath]="Eq113"></div></td>
+    <td>(11.3)</td>
+  </tr>
+  <tr>
+    <td> <div [appMath]="Eq114"></div></td>
+    <td>(11.4)</td>
+  </tr>
+</table>
+
+<p>The equations to compute the modified joint defect factor: </p>
+
+<table style="text-align: center; margin-left: 30%;">
+  <tr>
+    <td> <div [appMath]="Eq121"></div></td>
+    <td>(12.1)</td>
+  </tr>
+  <tr>
+    <td> <div [appMath]="Eq122"></div></td>
+    <td>(12.2)</td>
+  </tr>
+  <tr>
+    <td> <div [appMath]="Eq123"></div></td>
+    <td>(12.3)</td>
+  </tr>
+  <tr>
+    <td> <div [appMath]="Eq124"></div></td>
+    <td>(12.4)</td>
+  </tr>
+</table>
+
+<p>Where α is a relative difference in dip between critical joint and stope surface.</p>
+
+<h2 id="Factor_C">Gravity Factor (C)</h2>
+<hr>
+<p>Gravity factor (C) is related to the mode of failure as gravity fall, slabbing and sliding. 
+Its shortcoming is that it is not applicable to stope footwalls <a href="/about#ref-3">[3]</a>. 
+Although it is considered to be applicable to hangingwalls with dips between 0-90⁰, the database used to develop the C factor 
+chart contains only hangingwall information with dips between 60⁰-80⁰ <a href="/about#ref-3">[3]</a>. It was found that the 
+original gravity factor chart does not work for footwalls with dips less than 70⁰ as well as for 
+sliding failure cases [<a href="/about#ref-2">2</a>, <a href="/about#ref-25">24</a>, <a href="/about#ref-25">25</a>]. 
+The functional gravity factor chart for sliding failure of the 
+footwall was constructed by <a href="/about#ref-24">[24]</a> and accepted by current practitioners. The further research is 
+required to unite the stress factor and gravity factor <a href="/about#ref-3">[3]</a>. The gravity factor is currently assessed 
+using Figure 15a.
+</p>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 15.jpg" alt="Graphs for gravity factor C" style="width:70%;">
+  <p><span style="margin-right: 20%;">a)	For gravity fall and slabbing <a href="/about#ref-1">[1]</a>.</span> 
+  <span style="margin-right: 5%;">b)	For sliding failure <a href="/about#ref-24">[24]</a>.</span></p>
+  <p>Figure 15. Graphs for gravity factor C</p>
+</div>
+
+<p>According to Mathews et al. (1981) <a href="/about#ref-1">[1]</a>, relationship between the original gravity factor (C) and 
+stope dip (θ) is defined by Eq. (13.1):</p>
+
+<table style="text-align: center; margin-left:40%;">
+  <tr>
+    <td> <div [appMath]>
+    $$C= 8- 7 \times cos \theta$$  
+    </div></td>
+    <td style="padding-left:30%;">(13.1)</td>
+  </tr>
+</table>
+<p>The modified gravity factor by Potvin (1988) <a href="/about#ref-2">[2]</a> is as follows:  </p>
+
+<table style="text-align: center; margin-left:40%;">
+  <tr>
+    <td> <div [appMath]>
+    $$C= 8 - 6 \times cos \theta$$  
+    </div></td>
+    <td style="padding-left:30%;">(13.2)</td>
+  </tr>
+</table>
+
+<h2 id="Factor_T">Time Factor (T)</h2>
+<hr>
+<p>After sequencing of stopes or blasting operations, stress is redistributed and come to equilibrium
+state after some time. It was observed that the stand-up time of the stope highly influences on 
+rock mass behavior, thereby, stope stability [<a href="/about#ref-11">11</a>, 
+<a href="/about#ref-26">26</a>, <a href="/about#ref-27">27</a>]. Suorineni (2010) <a href="/about#ref-3">[3]</a> noted from Dun 
+and Pakalnis (1996) that dilution and open stope sloughage increase with the stand-up time of 
+open stope. Tannant and Diederichs (1997) <a href="/about#ref-28">[28]</a> proposed the time correlation factor to incorporate 
+into the stability number calculation after observation of the stope wall condition at Kidd Mine. 
+Time correlation factor according to Q’ value can be obtained from Table 5. The stability number 
+equation becomes as following with time effect incorporation: 
+</p>
+
+<table style="text-align: center; margin-left: 40%;">
+  <tr>
+    <td> <div [appMath]>$$N^*= Q' \times A \times B \times C \times T$$</div></td>
+    <td style="padding-left:20%;">(14)</td>
+  </tr>
+</table>
+
+<div style="text-align: center;">
+  <p>Table 5. Time correction factors <a href="/about#ref-28">[28]</a>.</p>
+  <img src="assets/img/Table 5.jpg" alt="Time correction factors" style="width:32%;">
+</div>
+
+<p>In this web tool, time factor is calculated based on Table 5. </p>
+<p>Suorineni (1998) <a href="/about#ref-29">[12]</a> recommended to include time effect in gravity factor C through a suitable
+excavation support ratio (ESR) <a href="/about#ref-4">[4]</a> from Table 6, which accounts for time and should be used in 
+calculation of the original gravity factor. The original gravity factor is conservative because it was 
+developed based on ESR of 1.6 for permanent openings <a href="/about#ref-1">[1]</a>, while open stope is temporary opening. 
+Therefore, gravity factor that properly accounts for time effect can be estimated from Eq. (15) 
+with corresponding Figure 16.
+</p>
+
+<div style="text-align: center;">
+  <p>Table 6. ESR for underground excavations <a href="/about#ref-30">[30]</a>.</p>
+  <img src="assets/img/Table 6.jpg" alt="ESR for underground excavations" style="width:50%;">
+</div>
+
+<table style="text-align: center; margin-left:40%;">
+  <tr>
+    <td> <div [appMath]>  $$C= 5ESR - (5ESR - 2)cos \theta$$</div></td>
+    <td style="padding-left:20%;">(15)</td>
+  </tr>
+</table>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 16.jpg" alt="C factor chart for various stope life spans" style="width:30%;">
+  <p>Figure 16. C factor chart for various stope life spans <a href="/about#ref-3">[3]</a>.</p>
+</div>
+
+<h2 id="Factor_F">Fault Factor (F)</h2>
+<hr>
+<p>Suorineni (2010) <a href="/about#ref-3">[3]</a> notes that the original, modified and extended stability graphs lack the fault
+consideration, which affects open stope stability. At many mine sites, stope walls evaluated as stable
+employing the stability graph often fail due to the presence of faults. This failure leads to ore 
+dilution, ore loss and unexpected increased cost if the fault presence is ignored or not considered.
+To correct this flaw of the stability graph, Suorineni, Tannant, and Kaiser (1999) <a href="/about#ref-31">[31]</a> developed the
+fault factor (F) to integrate it into the stability number estimation for open stope stability assessment.
+The chart of fault factor for the specific fault case is shown in Figure 17. It should be noted that 
+when the fault is inclined at approximately 20-30⁰ to the stope surface, it impacts the stope stability 
+greatly, while perpendicular faults to the surface have a negligible influence on the stope. In case of 
+presence of close faults, the stability number should be calculated using the following equation: 
+</p>
+
+<div style="text-align: center;">
+<table style="text-align: center; margin-left:40%;">
+  <tr>
+    <td> <div [appMath]>$$N_f'= Q' \times A \times B \times C \times F$$</div></td>
+    <td style="padding-left:20%;">(16)</td>
+  </tr>
+</table>
+  <img src="assets/img/Figure 17.png" alt="Fault factor estimation" style="width:60%;">
+  <p>Figure 17. The fault factor estimation <a href="/about#ref-31">[31]</a>.</p>
+</div>
+
+<h2 id="SG_Database">Stability Graph Database</h2>
+<hr>
+<p>This section presents the refined stability graph (RSG) database, which is a refined version of the 
+extended stability graph database and used for reproducing the refined stability graph (Figure 5). 
+The refined stability graph database can be downloaded <a href="/download" download="Stope-Database.clsx">here</a>. The basic parameters forming the refined
+stability graph include the modified stability number, shape factor, modified Q (Q′), modified stability
+number adjustment factors and the types of stope surfaces (i.e. backs, hangingwalls, footwalls and endwalls).
+The ranges of the quantitative parameters are shown in Table 7 and the frequency of occurrence of the 
+quantitative and qualitative factors are shown in Figure 18. 
+</p>
+
+<div style="text-align: center;">
+  <p>Table 7. Summary of the ranges of parameters based on the Original and Modified Stability Graph 
+number factors in the refined Extended Stability Graph database <a href="/about#ref-10">[10]</a>.</p>
+  <img src="assets/img/Table 7.jpg" alt="Statistical Analysis of the refined database" style="width:50%;">
+</div>
+
+<p>The frequency of occurrence of the values of the quantitative parameters are based on 88 stope backs,
+66 stope endwalls and 162 stope footwalls and hangingwalls in the RSG database <a href="/about#ref-10">[10]</a>. The frequencies
+of occurrence of these data in Figure 18 allow the determination of whether the data is biased towards
+one stope surface or value, for example. The characteristics observed in Figure 18 (a–f), are summarised
+as follows <a href="/about#ref-10">[10]</a>:
+</p>
+
+<ul>
+  <li>
+<p>Figure 18(a) shows that the hydraulic radii of ∼50% of the stope surfaces in the refined database
+varies between 5 and 9 m. Only 2.2% of all stope surfaces have hydraulic radii greater than 17 m.</p>
+  </li>
+  <li>
+<p>Figure 18(b) shows that 76% of the values of stress factor (A) for all hangingwalls and footwalls 
+in the refined database falls within the range of 0.9–1.0, indicating relaxed zones. This implies 
+that the stopes are designed to have the hangingwall perpendicular to the major principal stress 
+which is horizontal in Canada and Australia (the two major sources of the database). This may 
+imply that in stress environments where the major principal stress is vertical rather than 
+horizontal, the stability graph method should be used with caution. This observation also shows 
+that the lack of difference between transition zones in Figure 10 may be the result of bias in 
+the database towards relaxed stope surfaces.
+</p>
+  </li>
+  <li>
+<p>Figure 18(c) shows that for 84% of all footwalls and hangingwalls, the distribution of the
+joint orientation factor (B) in the RSG database is between 0.2 and 0.4. Based on this range, 
+the dip difference between the critical joint and stope surface varies from 0° to 40°. More than 
+50% of the stope backs have similar Factor B distribution.</p>
+  </li>
+  <li>
+<p>Figure 18(d) for the gravity factor (C) distribution shows that 58.6% of footwalls and hangingwalls
+have dips between 80° and 90°, whereas 95% of backs dip at 0–30°. This suggests that more than half
+of the case histories in the refined database come from steeply dipping orebodies, a characteristic
+to open stope mining method.</p>
+  </li>
+  <li>
+<p>The distribution of Factor C for hangingwalls is shown in Figure 18(e). The dip of more than 
+90% of the hangingwalls is between 60° and 90°.</p>
+  </li>
+  <li>
+<p>Figure 18(f) shows the distribution of types of stope surfaces in the database. Based on the
+figure, 28% of the data are from stope backs, 52% are from hangingwalls and footwalls, and 20% 
+are from stope endwalls.</p>
+  </li>
+</ul>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 18.jpg" alt="Statistical analysis of the refined database" style="width:60%;">
+  <p>Figure 18. Statistical analysis of the stability number factors and stope surface distributions in the refined stability graph database <a href="/about#ref-10">[10]</a>.</p>
+</div>
+
+<h2 id="SG_Variations">Stability Graph Variations</h2>
+
+<h2 id="ELOS">ELOS Graph for Dilution Estimations</h2>
+<hr>
+<p>The stability graph is intended to predict the stability state of open stopes qualitatively, 
+while the major concern of the industry is an amount of over-break that causes ore dilution 
+leading to excessive cost. Dilution lines first were added to the stability graph by <a href="/about#ref-32">[32]</a>. 
+Clark and Pakalnis (1997) <a href="/about#ref-25">[25]</a> introduced ELOS (Equivalent Linear Overbreak/Sloughing) term 
+to quantitatively estimate the ore dilution from hangingwall and footwall instability 
+(see Figure 19). Eq. (17.1) and (17.2) assists in estimation of the relative dilution. 
+</p>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 19.png" alt="ELOS lines superimposed on Potvin-Nickson stability graph" style="width:50%;">
+  <p>Figure 19. ELOS lines superimposed on Potvin-Nickson stability graph <a href="/about#ref-25">[25]</a>.</p>
+</div>
+  <table style="text-align: center; margin-left:30%;">
+    <tr>
+      <td> <div [appMath]="Eq171"></div></td>
+      <td>(17.1)</td>
+    </tr>
+    <tr>
+      <td> <div [appMath]="Eq172"></div></td>
+      <td>(17.2)</td>
+    </tr>
+  </table>
+
+<p>Since ELOS graph was developed based on limited data, Capes (2009) <a href="/about#ref-33">[33]</a> extended the 
+database adding 229 ELOS cases and revised the design lines for HW dilution chart using 
+statistical tools. One more variation is the dilution graph developed by Papaioanou and 
+Suorineni (2016) <a href="/about#ref-34">[34]</a> to eliminate the limitation of the initial ELOS graph, which was 
+applicable only to narrow-vein orebodies <a href="/about#ref-35">[35]</a>. Papaioanou and Suorineni (2016) <a href="/about#ref-34">[34]</a> 
+applied the logistic regression and Bayesian likelihood discrimination method on 226 
+case data from 6 underground mines in Australia to elaborate a quantitative stability 
+graph for dilution prediction. Figure 20 presents the generalized dilution-based 
+stability graph that is independent of orebody width.
+</p>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 20.jpg" alt="The generalized stability graph for dilution estimation" style="width:50%;">
+  <p>Figure 20. The generalized stability graph for dilution estimation <a href="/about#ref-34">[34]</a>.</p>
+</div>
+
+<h2 id="SG_Cablebolt_Design">The Stability Graph for Cablebolt Design</h2>
+<hr>
+<p>Open stopes are susceptible to hangingwall sloughage. To stabilize the footwalls and hangingwalls,
+cablebolts are appropriate support types due to the flexible size that can be cut to the desired length.
+To assist mine engineers with underground support design, the first cablebolt design graph was built
+by Diederichs and Hutchinson (1999) <a href="/about#ref-36">[36]</a>. It has features as cablebolt spacing, type and length 
+selection and can be found in work of [36]. Suorineni (2010) <a href="/about#ref-3">[3]</a> notes that for standard stope size,
+the chart tends to give the cablebolting pattern of 2.2 m because it was developed based on 
+Potvin-Nickson stability graph. 
+</p>
+
+<h2 id="Risk_based_SG">The Risk-based Stability Graph</h2>
+<hr>
+<p>The risk-based stability graphs are of interest because they can account for uncertainties.
+The main advantage of these graphs is that they enable sizing of stopes according to risk of 
+dilution amount, which is acceptable based on mining companies’ decision <a href="/about#ref-3">[3]</a>. The risk-based 
+graphs were developed applying statistics by [<a href="/about#ref-9">9</a>, <a href="/about#ref-37">37</a>]. 
+</p>
+
+<p>Figure 21 illustrates one of the risk-based stability graphs developed using likelihood statistics
+[<a href="/about#ref-29">29</a>, <a href="/about#ref-37">37</a>]. Likelihood ratio, Ʌ, and multiple contours describes different levels of risk in stope 
+performance. </p>
+<div style="text-align: center;">
+  <img src="assets/img/Figure 21.jpg" alt="The stability graph with likelihood contour curves" style="width:40%;">
+  <p>Figure 21. The stability graph with likelihood contour curves [<a href="/about#ref-29">29</a>, <a href="/about#ref-37">37</a>].</p>
+</div>
+
+<h2 id="SG_Transition_Zones">Transition Zones on the Stability Graph</h2>
+<hr>
+<p>The stability state of open stope is evaluated according to three zones as stable, unstable and 
+cave in the conventional stability graph (see Figure 1). Both Mathews et al. (1981) <a href="/about#ref-1">[1]</a> and Potvin 
+(1988) <a href="/about#ref-2">[2]</a> had drawn transition lines through “eyeballing” based on a cluster of scattered data. 
+Moreover, initial developers of the method divided the graph into three zones, while Potvin only 
+differentiated stable and failed cases with a single zone. Nickson (1992) <a href="/about#ref-5">[5]</a> first delineated 
+the transition lines statistically in Potvin’s modified stability graph dividing it into three 
+zones as in the original stability graph and eliminating the initial subjectivity of transition zones.
+</p>
+
+<p>Stewart and Forsyth (1995) <a href="/about#ref-6">[6]</a> criticized Potvin’s single boundary zone because of its definitive 
+nature indicating stope state only as stable and cave and missing unstable state of stopes, which 
+may be stabilized with the support systems. Stewart and Forsyth (1995) <a href="/about#ref-6">[6]</a> proposed to extend the 
+stability graph zones to four states as potentially stable, potentially unstable, potential major 
+failure and potential caving separated by three boundaries. According to Suorineni (2010) <a href="/about#ref-3">[3]</a>, 
+using the word “potential” is more rational than a definitive description of stope stability state, 
+because the stability graph tends to predict the stability level of stopes and provide probable stope 
+behavior rather than stating stope stability or failure definitively. 
+</p>
+
+<p>While updating the stability graph with extended data, Trueman with his colleagues recognized 
+that the transition zones change as the amount of data increases [<a href="/about#ref-7">7</a>, <a href="/about#ref-9">9</a>]. In Figure 22, the dashed 
+lines indicate the transition boundaries between stable-failure and failure-major failure with 400 
+cases, while continuous lines were drawn based on 483 datasets introducing the caving zone and 
+combining failure-major failure. Suorineni (2010) <a href="/about#ref-3">[3]</a> recommends using the latest updated stability 
+graph by Trueman et al. (2003) <a href="/about#ref-7">[7]</a> because of its reliability associated with data size and quality 
+as well as logistic regression applied to delineate the boundary lines. However, he also suggests 
+inclusion of the failure-major failure boundary line to the updated stability graph to minimize 
+the uncertainty between stable and caving zones. 
+</p>
+
+<div style="text-align: center;">
+  <img src="assets/img/Figure 22.png" alt="The effect of data increase on transition zone" style="width:40%;">
+  <p>Figure 22. The effect of data increase on transition zone <a href="/about#ref-3">[3]</a>.</p>
+</div>
+
+<p>It can be concluded from various stability graph transition zones that 1) with the increasing 
+data, the reliability of the stability graph prediction increases; 2) transition lines are not 
+static, these boundary lines between stability state zones change with the increased data. 
+Considering these two points, it is planned to design the web-based stability graph so that 
+it will allow an addition of data by users and adjustment of boundary lines accordingly through 
+employing statistical tools and machine learning techniques. 
+</p>
+
+<h2 id="SG_Statistical_Analysis">Statistical Analysis of the Stability Graph</h2>
+<hr>
+<p>Mark (2016) <a href="/about#ref-38">[38]</a> lists statistical analysis as one of the compulsory steps in empirical design 
+in mining. In the past, statistical analysis was proven to be a superior technique to refine 
+empirical approaches and to enhance design reliability. It is a useful tool that assists engineering 
+judgement to interpret the large database and establish the relationship between dependent and 
+independent variables. The first application of statistics to the stability graph was accomplished 
+by Nickson (1992) <a href="/about#ref-5">[5]</a> and Hadjigeorgiou, Leclaire, and Potvin (1995) <a href="/about#ref-24">[24]</a> independently on Potvin’s 
+modified stability graph to delineate the stability zones objectively. Furthermore, Clark and Pakalnis
+(1997) <a href="/about#ref-25">[25]</a> employed discriminant analysis to validate the design zones in ELOS graph. Suorineni (1998) 
+<a href="/about#ref-29">[29]</a> used Bayesian likelihood statistic to re-interpret the stability state of stopes in the stability 
+graph. Trueman and Mawdesley (2003) <a href="/about#ref-7">[7]</a> adopted logistic regression to improve the reliability of the 
+stability graph through processing data and delineating stability state zones in the stability chart. 
+With the help of logit model Stewart and Trueman (2001) <a href="/about#ref-39">[39]</a> revealed that the minimum of 150 cases 
+with at least 10 % of unstable case data are necessary to develop a site-specific stability graph. 
+A full probabilistic analysis of the stability graph was carried out by Suorineni (1998) <a href="/about#ref-29">[29]</a> through 
+Bayesian likelihood statistics. It was concluded that Bayesian likelihood discrimination enables to 
+define overlapping degrees between transitional zones, optimize stability state boundaries, calculate 
+the performance prediction error and risk cost, and develop multiple design curves in the stability 
+graph considering the probability of stope performance. Bayesian likelihood method along with logistic 
+regression was also used by Papaioanou and Suorineni (2016) <a href="/about#ref-34">[34]</a> to produce a generalized 
+dilution-based stability graph for open stope design, which does not need orebody width to be 
+considered. Considering these studies, it can be stated that the empirical method, particularly, 
+stability graph is advanced with the application of statistical approach. As mentioned before, Potvin’s modified graph and Trueman and 
+Mawdesley’s (2003) <a href="/about#ref-7">[7]</a> extended stability graph will be integrated into the web-based 
+stope stability prediction to give a choice to users.
+</p>
+
+<h2 id="SG_Limitations">The limitations of the Stability Graph</h2>
+<hr>
+<p>The stability graph development and its limitations are well formulated in Suorineni (2010) <a href="/about#ref-3">[3]</a>. 
+Some of the shortcomings of the stability graph related to adjustment factors, fault and time 
+effects were discussed above. Other significant limitations of the stability graph are listed below: 
+</p>
+
+<ul>
+  <li>The stability graph was developed without considering the stope width, therefore, it cannot 
+  properly predict the stope stability when applied to narrow vein mining. This was established by 
+  Suorineni (1998) <a href="/about#ref-29">[29]</a> when evaluating the stope performance at AngloGold Ashanti Mines. Later, 
+  Stewart, Trueman and Lyman (2007) <a href="/about#ref-40">[40]</a> also realized this drawback of the empirical method in 
+  Australian mines. Therefore, stability graph should be used with caution when applied to narrow 
+  vein mining. 
+  </li>
+  <li>Stope surface stability made from backfill cannot be assessed using the stability graph since 
+  backfill stability was not accounted for when developing the stability graph. 
+  </li>
+  <li>The stability graph ignores the blasting effect, which essentially creates fractures and 
+  contributes to the instability of the stope. 
+  </li>
+</ul>
+
+<h2 id="Reference">Reference</h2>
+
+<h4 id="ref-1">1.	Mathews, K.E., Hoek, E., Wyllie, D.C. and Stewart, S.B.V., 1981. Prediction of stable excavation spans 
+at depths below 1000m in hard rock mines. CANMET Report, DSS Serial No. OSQ80-00081.</h4>
+<h4 id="ref-2">2.	Potvin, Yves. "Empirical open stope design in Canada." PhD diss., University of British 
+Columbia, 1988.</h4>
+<h4 id="ref-3">3.	Suorineni, F.T., 2010. The stability graph after three decades in use: experiences and the way forward. 
+International journal of mining, Reclamation and Environment, 24(4), pp.307-339.</h4>
+<h4 id="ref-4">4.	Barton, N., Lien, R. and Lunde, J., 1974. Engineering classification of rock masses for the design of 
+tunnel support. Rock mechanics, 6(4), pp.189-236.</h4>
+<h4 id="ref-5">5.	Nickson, S.D., 1992. Cable support guidelines for underground hard rock mine operations (Doctoral 
+dissertation, University of British Columbia).</h4>
+<h4 id="ref-6">6.	Stewart, S.B.V. and Forsyth, W.W., 1995. The Mathew's method for open stope design. CIM bulletin, 
+88(992), pp.45-53.</h4>
+<h4 id="ref-7">7.	Trueman, R. and Mawdesley, C., 2003. Predicting cave initiation and propagation. CIM bulletin, 
+96(1071), pp.54-59.</h4>
+<h4 id="ref-8">8.	Trueman, R., Mikula, P., Mawdesley, C.A. and Harries, N., 2000. Experience in Australia with the 
+application of the Mathew's method for open stope design. The CIM Bulletin, 93(1036), pp.162-167.</h4>
+<h4 id="ref-9">9.	Mawdesley, C., Trueman, R. and Whiten, W.J., 2001. Extending the Mathews stability graph for 
+open–stope design. Mining Technology, 110(1), pp.27-39.</h4>
+<h4 id="ref-10">10.	Madenova, Y. and Suorineni, F.T., 2020. On the question of original versus modified stability 
+graph factors–a critical evaluation. Mining Technology, 129(1), pp.40-52.</h4>
+<h4 id="ref-11">11.	Milne, D., Pakalnis, R., Grant, D. and Sharma, J., 2004. Interpreting hanging wall deformation in 
+mines. International Journal of Rock Mechanics and Mining Sciences, 41(7), pp.1139-1151.</h4>
+<h4 id="ref-12">12.	Deere, D.U., 1964. Technical description of rock cores for engineering purpose. Rock Mechanics and 
+Engineering Geology,, 1(1), pp.17-22.</h4>
+<h4 id="ref-13">13.	Barton, N., 2002. Some new Q-value correlations to assist in site characterisation and tunnel design. 
+International journal of rock mechanics and mining sciences, 39(2), pp.185-216.</h4>
+<h4 id="ref-14">14.	Diederichs, M.S. and Kaiser, P.K., 1999. Tensile strength and abutment relaxation as failure control 
+mechanisms in underground excavations. International Journal of Rock Mechanics and Mining 
+Sciences, 36(1), pp.69-96.</h4>
+<h4 id="ref-15">15.	Mitri, H. S., Hughes, R. and Zhang, Y., 2010. New rock stress factor for the stability graph method, 
+International Journal of Rock Mechanics & Mining Sciences, 48(1):141–145, doi: 10.1016/j.ijrmms.2010.09.015.</h4>
+<h4 id="ref-16">16.	Martin, C.D., 1997. Seventeenth Canadian geotechnical colloquium: the effect of cohesion loss and 
+stress path on brittle rock strength. Canadian Geotechnical Journal, 34(5), pp.698-725.</h4>
+<h4 id="ref-17">17.	Vallejos, J.A., Delonca, A., Fuenzalida, J. and Burgos, L., 2016. Statistical analysis of the 
+stability number adjustment factors and implications for underground mine design. International 
+Journal of Rock Mechanics and Mining Sciences, (87), pp.104-112.</h4>
+<h4 id="ref-18">18.	Vallejos, J.A., Delonca, A. and Perez, E., 2018. Three-dimensional effect of stresses in open 
+stope mine design. International Journal of Mining, Reclamation and Environment, 32(5), pp.355-374.</h4>
+<h4 id="ref-19">19.	Hoek, E. and Brown, E.T., 1980. Underground excavations in rock. CRC Press.</h4>
+<h4 id="ref-20">20.	Sheorey, P.R., 1994, February. A theory for in situ stresses in isotropic and transverseley 
+isotropic rock. In International journal of rock mechanics and mining sciences & geomechanics abstracts 
+(Vol. 31, No. 1, pp. 23-34). Pergamon.</h4>
+<h4 id="ref-21">21.	Potvin, Y. and Hadjigeorgiou, J., 2001. The stability graph method. Underground Mining Methods, pp.513-520.</h4>
+<h4 id="ref-22">22.	Melo, M. and Pinto, C.L.L., 2014. Potvin stability graph applied to brazilian geomechanic 
+environment. Rem: Revista Escola de Minas, 67(4), pp.413-419.</h4>
+<h4 id="ref-23">23.	Bewick, R. and Kaiser, P., 2009, May. Numerical Assessment of Factor B in Mathews Method for 
+Open Stope Design. In Proceedings of the 3rd CANUS Rock Mechanics Symposium, Toronto, ON, Canada (Vol. 1113).</h4>
+<h4 id="ref-24">24.	Hadjigeorgiou, J., Leclair, J. and Potvin, Y., 1995. An update of the stability graph method for 
+open stope design. CIM Rock Mechanics and Strata Control session, Halifax, Nova Scotia, pp.14-18.</h4>
+<h4 id="ref-25">25.	Clark, L. and Pakalnis, R., 1997, April. An empirical design approach for estimating unplanned 
+dilution from open stope hangingwalls and footwalls. In Proceedings of the 99th annual general meeting. 
+Vancouver: Canadian Institute of Mining, Metallurgy and Petroleum.</h4>
+<h4 id="ref-26">26.	Pakalnis, R.T., 1986. Empirical stope design at the Ruttan Mine, Sherritt Gordon Mines Ltd 
+(Doctoral dissertation, University of British Columbia).</h4>
+<h4 id="ref-27">27.	Le Roux, P.J. and Brentley, K.R., 2017, January. Time-Dependent Failure of Open Stopes at 
+Target Mine. In ISRM AfriRock-Rock Mechanics for Africa. International Society for Rock Mechanics 
+and Rock Engineering.</h4>
+<h4 id="ref-28">28.	Tannant, D.D. and Diederichs, M.S., 1997. Cablebolt optimization in# 3 Mine. Report to Shawn 
+Seldon, Kidd Mine Division, Timmins, Ontario, Canada.</h4>
+<h4 id="ref-29">29.	Suorineni, F.T., 1998. Effects of faults and stress on open stope design. PhD Thesis.</h4>
+<h4 id="ref-30">30.	 Løset, F., 1997. Use of the Q-method for securing small weakness zones and temporary support, 
+NGI internal report No. 548140–1.</h4>
+<h4 id="ref-31">31.	Suorineni, F.T., Tannant, D.D. and Kaiser, P.K., 1999. Fault factor for the stability graph 
+method of open-stope design. Transactions of the Institution of Mining and Metallurgy Section A-Mining 
+Industry, 108, pp.A 92-A104.</h4>
+<h4 id="ref-32">32.	Scoble, M.J. and Moss, A., 1994. Dilution in underground bulk mining: implications for 
+production management. Geological Society, London, Special Publications, 79(1), pp.95-108.</h4>
+<h4 id="ref-33">33.	Capes, G.W., 2009. Open stope hangingwall design based on general and detailed data 
+collection in unfavorable hangingwall conditions. Doctoral dissertation, University of Saskatchewan.</h4>
+<h4 id="ref-34">34.	Papaioanou, A. and Suorineni, F.T., 2016. Development of a generalised dilution-based stability 
+graph for open stope design. Mining Technology, 125(2), pp.121-128.</h4>
+<h4 id="ref-35">35.	Clark, L.M., 1998. Minimizing dilution in open stope mining with a focus on stope design and 
+narrow vein longhole blasting (Doctoral dissertation, University of British Columbia).</h4>
+<h4 id="ref-36">36.	Diederichs, M.S., Hutchinson, D.J., and Kaiser, P.K., 1999. Cablebolt layouts using the modified 
+stability graph, CIM Bull. 92, pp. 81–86.</h4>
+<h4 id="ref-37">37.	Suorineni, F.T., Kaiser, P.K. and Tannant, D.D., 2001. Likelihood statistic for interpretation of 
+the stability graph for open stope design. International Journal of Rock Mechanics and Mining Sciences, 
+38(5), pp.735-744.</h4>
+<h4 id="ref-38">38.	Mark, C., 2016. Science of empirical design in mining ground control. International Journal of 
+Mining Science and Technology, 26(3), pp.461-470.</h4>
+<h4 id="ref-39">39.	Stewart, P.C. and Trueman, R., 2001, January. The Extended Mathews Stability Graph: Quantifying 
+case history requirements and site-specific effects. In International Symposium on Mining Techniques (pp. 84-92). CIM.</h4>
+<h4 id="ref-40">40.	Stewart, P., Trueman, R. and Lyman, G., 2007. Development of benchmark stoping widths for longhole 
+narrow-vein stoping. Mining Technology, 116(4), pp.167-175.</h4>
+    </div>
+  </section>
+</div>

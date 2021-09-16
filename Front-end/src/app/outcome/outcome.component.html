@@ -1,0 +1,252 @@
+<app-tool-nav></app-tool-nav>
+<div class="bg">
+  <div class="col-1-1">
+    <h3>Hydraulic Radius</h3>
+    <h4>Stope Volume <span style="float:right;color:#226556;font-size:1.3vw;">{{volume}} m<sup>3</sup></span></h4>
+  <table class="hr">
+    <tr>
+      <th></th>
+      <th>Crown</th>
+      <th>Hangingwall</th>
+      <th>Footwall</th>
+      <th style="border-right:none;">Sidewall</th>
+    </tr>
+
+    <tr id="hr">
+      <td style="padding-right:0.5%;">S Factor</td>
+      <td>{{hrCrown}} m</td>
+      <td>{{hrHang}} m</td>
+      <td>{{hrFoot}} m</td>
+      <td style="border-right:none;">{{hrSide}} m</td>
+    </tr>
+
+    <tr>
+      <td style="padding-right:0.5%;">Area</td>
+      <td>{{crownA}} m<sup>2</sup></td>
+      <td>{{hangA}} m<sup>2</sup></td>
+      <td>{{footA}} m<sup>2</sup></td>
+      <td style="border-right:none;">{{sideA}} m<sup>2</sup></td>
+    </tr>
+
+    <tr>
+      <td style="padding-right:0.5%;">Perimeter</td>
+      <td>{{crownP}} m&nbsp;</td>
+      <td>{{hangP}} m&nbsp;</td>
+      <td>{{footP}} m&nbsp;</td>
+      <td style="border-right:none;">{{sideP}} m&nbsp;</td>
+    </tr>
+  </table>
+  </div>
+
+<div class="col-1-2">
+  <h3 style="margin-left: 30%;">Modified Q value</h3>
+  <div id="QModified">
+    <canvas baseChart
+            [datasets]="barChartDataQ"
+            [labels]="barChartLabels"
+            [options]="barChartOptionsQ"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegendQ"
+            [chartType]="barChartType"
+            [colors]="ChartColors">
+    </canvas>
+  </div>  
+</div>
+ 
+
+<div class="col-1-3">
+  <h3 style="margin-left: 35%;">Induced Stresses</h3>
+    <table>  
+      <tr>
+        <td><i class="fas fa-exchange-alt" style="padding-right:2%; color:#226556; font-size:1.1vw;"></i>
+        Induced stress at crown</td>
+        <td style="color:#226556;font-weight:bold;">{{crownIndStress}} MPa</td>
+      </tr>
+
+      <tr>
+        <td><i class="fas fa-exchange-alt" style="padding-right:2%; color:#226556; font-size:1.1vw;"></i>
+          Induced stress at hangingwall</td>
+        <td style="color:#226556;font-weight:bold;">{{hwIndStress}} MPa</td>
+      </tr>
+
+      <tr>
+        <td><i class="fas fa-exchange-alt" style="padding-right:2%; color:#226556; font-size:1.1vw;"></i>
+          Induced stress at footwall</td>
+        <td style="color:#226556;font-weight:bold;">{{fwIndStress}} MPa</td>
+      </tr>
+
+      <tr>
+        <td><i class="fas fa-exchange-alt" style="padding-right:2%; color:#226556; font-size:1.1vw;"></i>
+          Induced stress at sidewalls</td>
+        <td style="color:#226556; font-weight:bold;">{{sideIndStress}} MPa</td>
+      </tr>
+    </table>
+</div>
+
+<div class="col-2-1">
+  <h3 style="margin-left: 20%;">Stability Number Adjustment Factors</h3>
+  
+    <div id="aFactor">
+      <canvas baseChart
+        [datasets]="barChartDataA"
+        [labels]="barChartLabels"
+        [options]="barChartOptionsA"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        [colors]="ChartColors">
+      </canvas>
+    </div>
+
+    <div id="bFactor" style="display:inline-block;">
+      <canvas baseChart
+        [datasets]="barChartDataB"
+        [labels]="barChartLabels"
+        [options]="barChartOptionsB"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        [colors]="ChartColors">
+      </canvas>
+    </div>
+      
+    <div id="cFactor" style="display: block;">
+      <canvas baseChart
+        [datasets]="barChartDataC"
+        [labels]="barChartLabels"
+        [options]="barChartOptionsC"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        [colors]="ChartColors">
+      </canvas>
+    </div>
+
+    <div id="tFactor" style="display: block;">
+      <canvas baseChart
+        [datasets]="barChartDataT"
+        [labels]="barChartLabels"
+        [options]="barChartOptionsT"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        [colors]="ChartColors">
+      </canvas>
+    </div>
+
+    <div id="fFactor" style="display: block;">
+      <canvas baseChart
+        [datasets]="barChartDataF"
+        [labels]="barChartLabels"
+        [options]="barChartOptionsF"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        [colors]="ChartColors">
+      </canvas>
+    </div>
+
+    <div id="stabNumber" style="display: block;">
+      <canvas baseChart
+        [datasets]="barChartDataN"
+        [labels]="barChartLabels"
+        [options]="barChartOptionsN"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType"
+        [colors]="ChartColors">
+      </canvas>
+    </div>
+  </div>
+
+  <div class="col-3-1">
+    <h3 style="margin-left: 10%;">Probabilistic Prediction of Stope Surface Stability</h3>
+    <table>  
+      <tr id="crown">
+        <td  style="color:gray;font-weight:normal;">Crown</td>
+        <td style="color:#226556;"></td>
+        <td style="color:grey;"></td>
+        <td style="color:#CC0000;"></td>
+      </tr>
+      <tr id="state">
+        <td></td>
+        <td>Stable</td>
+        <td>Unstable</td>
+        <td >Failure</td>
+      </tr>
+
+      <tr id="hang">
+        <td style="color:gray;font-weight: normal;">Hangingwall</td>
+        <td style="color:#226556;"></td>
+        <td style="color:grey;"></td>
+        <td style="color:#CC0000;"></td>
+      </tr>
+      <tr id="state">
+        <td></td>
+        <td>Stable</td>
+        <td>Unstable</td>
+        <td >Failure</td>
+      </tr>
+ 
+      <tr id="foot">
+        <td style="color:gray;font-weight: normal">Footwall</td>
+        <td style="color:#226556;"></td>
+        <td style="color:grey;"></td>
+        <td style="color:#CC0000;"></td>
+      </tr>
+      <tr id="state">
+        <td></td>
+        <td>Stable</td>
+        <td>Unstable</td>
+        <td>Failure</td>
+      </tr>
+  
+      <tr id="sw1">
+        <td style="color:gray;font-weight: normal">Sidewall 1</td>
+        <td style="color:#226556;"></td>
+        <td style="color:grey;"></td>
+        <td style="color:#CC0000;"></td>
+      </tr>
+      <tr id="state">
+        <td></td>
+        <td>Stable</td>
+        <td>Unstable</td>
+        <td >Failure</td>
+      </tr>
+
+      <tr id="sw2">
+        <td style="color:gray;font-weight: normal">Sidewall 2</td>
+        <td style="color:#226556;"></td>
+        <td style="color:grey;"></td>
+        <td style="color:#CC0000;"></td>
+      </tr>
+      <tr id="state" style="border-bottom: none;">
+        <td></td>
+        <td>Stable</td>
+        <td>Unstable</td>
+        <td >Failure</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <div class="col-3-2">
+    <div id="rec">
+      <canvas baseChart
+        [datasets]="refinedChartData"
+        [options]="scatterChartOptions"
+        [legend]="scatterChartLegend"
+        [colors]="stabChartColors">
+      </canvas>
+    </div>
+  </div>
+
+</div>
+
+<div class="next">
+  <button class="mat-raised-button mat-primary" (click)="openOptions()">complete</button>
+</div>
+
+<div class="back">
+  <button class="mat-raised-button mat-primary" routerLink="/stability">&laquo;  Back</button>
+</div>

@@ -1,0 +1,132 @@
+<app-tool-nav></app-tool-nav>
+<div class="bg">
+
+  
+  <div class="col-40">
+  <form name="qForm" #qForm="ngForm">
+    
+  <div class="form-group">
+    <h4>Q' - Modified Q Calculation</h4>
+    <p>Please enter the RQD and joint characteristics for each stope surface.</p>
+    <hr>
+      <label>Stope surface</label>
+      <div class="input-group-append">
+        <select required ngModel name="ssurface" id="ssurface" #ssurface="ngModel" ng-change="selectChange()" (change)="selectChangeHandler2($event)" [ngModel]="Xssurface"  #qvalueInput> 
+          <option value="" selected>Select  stope surface</option>
+          <option value="Crown">Crown</option>
+          <option value="HW">Hangingwall</option>
+          <option value="FW">Footwall</option>
+          <option value="SW1">Sidewall 1</option>
+          <option value="SW2">Sidewall 2</option>
+          <option value="same">The same surface characteristics</option>
+        </select>
+        <div *ngIf="ssurface.invalid && (ssurface.dirty || ssurface.touched)" class="select-danger">
+          <div *ngIf="ssurface.errors?.required" style="margin-top: 4%;">*Select stope surface.</div>
+        </div>
+      </div>
+  </div>
+
+  <!--RQD-->
+  <div class="form-group">
+    <label for="rqd">RQD</label>
+    <div class="input-group-append ">
+      <input type="number" appMaxRqd="100" appMinRqd="10" id="rqd" placeholder="Enter RQD" 
+      class="form-control" required ngModel [ngModel]="Xrqd" name="rqd"  #rqd="ngModel">
+      <button (click)="openModal()" id="calcRQD" style="background-color:white; border:none;padding-left:0.4em; float:left;">
+        <i class="fas fa-calculator" style="font-size:1.6vw;color:black;float: left;"></i>
+      </button><i class="fas fa-info-circle" aria-hidden="true" 
+        matTooltip="Rock Quality Designation represents the condition of recovered drill core." 
+        matTooltipPosition="right" matTooltipClass="toolTip"></i>
+    
+      <div *ngIf="rqd.invalid && (rqd.dirty || rqd.touched)" class="text-danger">
+        <div *ngIf="rqd.errors?.appMaxRqd">*Rock Quality Designation cannot be greater than 100.</div>
+        <div *ngIf="rqd.errors?.appMinRqd">*Enter a proper RQD.</div>
+      </div>
+    </div>
+  </div>
+
+  <!--JOINT SET NUMBER -->
+  <div class="form-group">
+    <label for="jointSet">Joint sets</label>
+    <div class="input-group-append">
+      <input type="number" appMaxJn="20" appMinJn="0.75" id="jointSet" placeholder="Enter Jn" class="form-control" 
+      required ngModel [ngModel]="XjointSet" name="jointSet" #jointSet="ngModel">
+      <button (click)="openModal2()" style="background-color:white; border:none; padding-left:0.4em; float:left;" id="selJn">
+        <i class="fas fa-calculator" style="font-size:1.6vw; color:black; float: left;"></i>
+      </button><i class="fas fa-info-circle" aria-hidden="true" matTooltip="Joint set is a number of joints with similar orientation and morphology." 
+         matTooltipPosition="right" matTooltipClass="toolTip"></i>
+      <div *ngIf="jointSet.invalid && (jointSet.dirty || jointSet.touched)" class="text-danger">
+        <div *ngIf="jointSet.errors?.appMaxJn">*Joint set number cannot be greater than 20.</div>
+        <div *ngIf="jointSet.errors?.appMinJn">*Joint set number cannot be less than 0.75.</div>
+      </div>
+    </div>
+  </div>
+
+  <!--ROCK WALL CONTACT OPTIONS-->
+  <div class="form-group">
+    <label>Rock wall contact</label>
+    <select required ngModel name="wallContact" id="wallContact" #wallContact="ngModel" (change)="selectChangeHandler1($event)" [ngModel]="XwallContact"> 
+      <option value="" selected>Select rock wall contact case</option>
+      <option value="contact">Rock wall contact</option>
+      <option value="contactBefore">Rock wall contact before 10 cm shear</option>
+      <option value="noContact">No rock-wall contact when sheared</option>
+    </select> <i class="fas fa-info-circle" aria-hidden="true" matTooltip="This shows contact between joint walls." 
+      matTooltipPosition="right" matTooltipClass="toolTip" style="padding-left: 1%;"></i>
+    <div *ngIf="wallContact.invalid && (wallContact.dirty || wallContact.touched)" class="select-danger">
+      <div *ngIf="wallContact.errors?.required">*Select rock wall contact.</div>
+    </div>
+  </div>
+
+  <!--JOINT ROUGHNESS-->
+  <div class="form-group"> 
+    <label for="jointRoughness">Joint roughness</label>
+    <div class="input-group-append">
+      <input type="number" appMaxJr="4" appMinJr="0.5" id="jointRoughness" placeholder="Enter Jr" class="form-control" 
+        required ngModel [ngModel]="XjointRoughness" name="jointRoughness" #jointRoughness="ngModel">
+      <button (click)="openModal3()" style="background-color:white; border:none; padding-left:0.4em; float:left;" id="selJr">
+        <i class="fas fa-calculator" style="font-size:1.6vw; color:black;float: left;"></i>
+      </button><i class="fas fa-info-circle" aria-hidden="true" matTooltip="Joint roughness is a condition of the joint wall surface." 
+      matTooltipPosition="right" matTooltipClass="toolTip"></i>
+      <div *ngIf="jointRoughness.invalid && (jointRoughness.dirty || jointRoughness.touched)" class="text-danger">
+        <div *ngIf="jointRoughness.errors?.appMaxJr">*Joint roughness cannot be greater than 4.</div>
+        <div *ngIf="jointRoughness.errors?.appMinJr">*Joint roughness number cannot be less than 0.5.</div>
+      </div>
+    </div>
+  </div>
+  
+  <!--JOINT ALTERATION-->
+  <div class="form-group">
+    <label for="jointAlteration">Joint alteration</label>
+    <div class="input-group-append">
+      <input type="number" appMaxJa="20" appMinJa="0.75" id="jointAlteration" placeholder="Enter Ja" class="form-control" 
+      required ngModel [ngModel]="XjointAlteration" name="jointAlteration" #jointAlteration="ngModel" (change)="onChange(rqd.value);">
+      <button (click)="openModal4()" style="background-color:white; border:none; padding-left:0.4em; float:left;" id="selJa">
+        <i class="fas fa-calculator" style="font-size:1.6vw; color:black;float: left;"></i>
+      </button><i class="fas fa-info-circle" aria-hidden="true" matTooltip="Joint alteration is the degree of alteration or filling along the weakest joint." 
+      matTooltipPosition="right" matTooltipClass="toolTip"></i>
+      <div *ngIf="jointAlteration.invalid && (jointAlteration.dirty || jointAlteration.touched)" class="text-danger">
+        <div *ngIf="jointAlteration.errors?.appMaxJa">*Joint alteration cannot be greater than 20.</div>
+        <div *ngIf="jointAlteration.errors?.appMinJa">*Joint alteration number cannot be less than 0.75.</div>
+      </div>  
+    </div>
+  </div>
+  
+  <div class="calc">
+    <span><button class="mat-raised-button mat-primary"  type="submit" (click)="submitReset();" style="width:35%"><i class="fas fa-plus" style="background:none;font-size:1.1vw; color:white; margin-right: 0.2em;"></i>
+      Add new stope surface</button>
+    </span>
+    <span  id ="right"><button class="mat-raised-button mat-primary" type="submit"   (click)="QCalc(rqd.value, jointSet.value, jointRoughness.value, jointAlteration.value);">
+      Calculate</button>
+    </span>
+  </div>
+  </form>
+  </div>
+
+  <div class="back">
+    <button class="mat-raised-button mat-primary" routerLink="/hr/symmetric/sym-res">&laquo;  Back</button>
+  </div>
+  
+  <router-outlet></router-outlet>
+</div>
+  
+  

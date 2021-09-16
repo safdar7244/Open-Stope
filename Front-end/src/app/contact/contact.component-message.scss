@@ -1,0 +1,48 @@
+p {
+    text-align:center;
+    font-size: 1.1vw;
+}
+
+.mat-dialog-content {
+    padding: 0%;
+    margin: 0%;
+}
+
+#close {
+    background-color: #226556;
+    border: none;
+    color: white;
+    width: 28%;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    padding: 0.8%;
+    font-size: 1.1vw;
+    border-radius: 0.3em;
+    margin: auto;
+    margin-bottom: 2%;
+    margin-top: 0%;
+  }
+
+button:focus {
+    outline:none !important;
+}
+
+@media only screen and (max-width:1000px) {
+    #close {
+    margin-top:0%;
+        padding: 2%;
+        width: 30%;
+        line-height: 200%;
+    }
+    p {
+        line-height: 200%;
+    }
+    .mat-dialog-content {
+        margin: 0%;
+    }
+    .mat-dialog-actions {
+        margin: 0%;
+    }
+}
+    

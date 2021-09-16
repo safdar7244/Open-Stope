@@ -1,0 +1,52 @@
+.welcome {
+  margin: 0 auto;
+  margin-right: 42%;
+  margin-top: 15%;
+}
+
+h1 {
+  margin: auto;
+  font-size: 1.8vw;
+  text-align: center;
+  color:#474747;
+  font-family: Arial, Helvetica;
+  margin-top: 12%;
+  line-height: 1.5;
+}
+
+#wrapper {
+  position: fixed;
+  overflow: hidden;
+  width: 47%;
+  left: 13%;
+  top: 10%;
+  padding:0%;
+  }
+
+button {
+  background: #226556;
+  border: none;
+  color: white;
+  font-size: 1.5vw;
+  margin-top: 3%;
+  padding: 0.4em 0.8em;
+  position: relative;
+  left: 45%;
+  border-radius: 6px;
+}
+
+button:focus {
+  outline:none !important;
+}
+
+button:hover {
+  background-color:#267463;
+}
+
+.bg {
+  position: fixed;
+  top: 5%;
+  bottom: 10%;
+  right: 5%;
+  left: 50%;
+}

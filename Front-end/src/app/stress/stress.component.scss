@@ -1,0 +1,154 @@
+.bg {
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 100%;
+}
+
+.col-40 {
+  background-color: white;  
+  top: 2%;
+  height: 75%;
+  width: 40%;
+  margin-left: 8%;
+  margin-bottom: 10%;
+  float: left;
+  position:relative;
+  border-radius: 4px;
+}
+
+h4 {
+  text-align: center;
+  font-size: 1.5vw;
+  padding-top: 3%;
+  margin-bottom: 0.5%;
+}
+
+p {
+  text-align: center;
+  font-size: 1vw;
+  padding-top: 1%; 
+  margin-bottom:0%;
+}
+
+hr {
+  border-width:0;
+  width: 72%;
+  color: #226556;
+  background-color: #226556;
+  height: 0.1em;
+  margin-top: 0;
+}
+
+.calc button {
+  background-color: #226556;
+  border: none;
+  color: white;
+  padding: 1%;
+  width: 20%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1vw;
+  border-radius: 0.5em;
+  margin-top: 3%;
+  position: relative;
+  margin-left: 35%;
+  &:hover {
+    background: #267463;
+    text-decoration: none;
+    color: white;
+    border: none;
+  }
+}
+.calc button:focus {
+  outline:none !important;
+}
+
+input[type=number], select, textarea {
+  border-color: #696969;
+  color: black;
+  display: inline;
+  border-radius: 0.5em;
+  font-size: 1vw;
+  box-shadow: none !important;
+  &:focus {
+    box-shadow:1px 1px 3px #226556 !important;
+  }
+}
+
+label {
+  text-align: left;
+  display: block;
+  font-size: 1vw;
+  color: black;
+  margin-top: 0.5%;
+}
+
+#left {
+  display: inline-block;
+  margin-left: 5%;
+  width: 15%;
+  margin-right: -7%;
+}
+
+.btn {
+  border: none;
+  color: white;
+  padding: 2%;
+  padding-left: 7%;
+  padding-right: 7%;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: none !important;
+}
+
+.text-danger {
+  width: 100%;
+  position: fixed;
+  font-size: 0.9vw;
+}
+
+.back button {
+  background-color: #226556;
+  border: none;
+  color: white;
+  padding: 0.5%;
+  width: 7%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2vw;
+  border-radius: 0.5em;
+  display: block;
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+  &:hover {
+    background: #267463;
+    text-decoration: none;
+    color: white;
+    border: none;
+  }
+}
+
+.back button:focus {
+  outline:none !important;
+}
+
+@media screen and (max-width: 750px) {
+  .calc button {
+    padding: 0%;
+  }
+  .back button {
+    padding: 0%;
+  }
+  label {
+    margin-bottom: -0.5em;
+  }
+  span {
+    margin-left: 2%;
+  }
+  #left {
+    margin-left: 6%;
+    margin-right: 3%;
+    display: inline-block;
+  }
+}

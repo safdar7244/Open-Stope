@@ -1,0 +1,115 @@
+<app-tool-nav></app-tool-nav>
+<div class="bg">
+  <div class="col-40">
+    <h4>A, B, C, T and F Factors' Calculation</h4>
+    <p>Please enter the values below for each stope surface.</p>
+    <hr>
+
+<form name="factorsForm" #factorsForm="ngForm">
+  <div class="form-group">
+    <label>Stope surface</label>
+    <div class="input-group-append">
+      <select required ngModel name="ssurface" id="ssurface" #ssurface="ngModel" [ngModel]="Aval" (click)="onClick($event)" (change)="selectChangeHandler($event)"> 
+        <option value="" selected>Select stope surface</option>
+        <option value="Crown" isShow =isShow;>Crown</option>
+        <option value="HW">Hangingwall</option>
+        <option value="FW">Footwall</option>
+        <option value="SW1">Sidewall 1</option>
+        <option value="SW2">Sidewall 2</option>
+      </select>
+    </div>
+    <div *ngIf="ssurface.invalid && (ssurface.dirty || ssurface.touched)" class="select-danger">
+      <div *ngIf="ssurface.errors?.required">*Select stope surface.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="ucs">Intact rock UCS</label>
+    <div class="input-group-append">
+    <input type="number" appMaxUcs="500" appMinUcs="10" id="ucs" placeholder="Uniaxial compressive strength in MPa"
+    class="form-control" required ngModel [ngModel]="Bval" name="ucs" #ucs="ngModel">
+    <i class="fas fa-info-circle" aria-hidden="true" style="margin-top:0%;"
+      matTooltip="Unconfined uniaxial compressive strength in MPa" 
+      matTooltipPosition="right" matTooltipClass="toolTip"></i>
+    </div>
+    <div *ngIf="ucs.invalid && (ucs.dirty || ucs.touched)" class="text-danger">
+      <div *ngIf="ucs.errors?.appMaxUcs">*Enter a proper UCS.</div>
+      <div *ngIf="ucs.errors?.appMinUcs">*Enter a proper UCS.</div>
+    </div>
+  </div>
+
+    <div class="form-group">
+      <label for="diffDip">Difference in dip between wall & critical joints</label>
+      <div class="input-group-append">
+      <input type="number" appMaxDipDiff="180" appMinDipDiff="0" id="diffDip" placeholder="Difference in dip in degrees"
+      class="form-control" required ngModel [ngModel]="Cval" name="diffDip" #diffDip="ngModel">
+      <i class="fas fa-info-circle" aria-hidden="true" style="margin-top:0%;"
+        matTooltip="Relative difference in dip between the critical joint and stope surface" 
+        matTooltipPosition="right" matTooltipClass="toolTip"></i>
+      </div>
+      <div *ngIf="diffDip.invalid && (diffDip.dirty || diffDip.touched)" class="text-danger">
+        <div *ngIf="diffDip.errors?.appMaxDipDiff">*Enter a difference in dip between critical joint & stope surface.</div>
+        <div *ngIf="diffDip.errors?.appMinDipDiff">*Enter a difference in dip between critical joint & stope surface.</div>
+      </div>
+    </div>
+
+  <div class="form-group">
+    <label for="stopeDip">Stope surface dip of interest</label>
+    <div class="input-group-append">
+    <input type="number" appMaxStopeDip="90" appMinStopeDip="0" id="stope.Dip" placeholder="Stope surface dip in degrees"
+    class="form-control" required ngModel [ngModel]="Dval" name="stopeDip" #stopeDip="ngModel">
+    <i class="fas fa-info-circle" aria-hidden="true" style="margin-top:0%;"
+      matTooltip="Inclination of stope surface" 
+      matTooltipPosition="right" matTooltipClass="toolTip"></i>
+    </div>
+    <div *ngIf="stopeDip.invalid && (stopeDip.dirty || stopeDip.touched)" class="text-danger">
+      <div *ngIf="stopeDip.errors?.appMaxStopeDip">*Enter a proper stope surface dip.</div>
+      <div *ngIf="stopeDip.errors?.appMinStopeDip">*Enter a proper stope surface dip.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Stope surface exposure time</label>
+    <div class="input-group-append">
+      <select name="time" id="time" #time [ngModel]="Eval" (change)="selectChangeHandler2($event)"> 
+        <option value="" selected>Select stope surface exposure time</option>
+        <option value="3month"> &lt; 3 months</option>
+        <option value="35month">3-5 months</option>
+        <option value="512month">5-12 months</option>
+        <option value="12month"> &gt; 12 months</option>
+      </select>
+      <i class="fas fa-info-circle" aria-hidden="true" style="margin-top:0%;"
+      matTooltip="If skipped, time factor will be 1 for selected stope surface"
+      matTooltipPosition="right" matTooltipClass="toolTip"></i>
+    </div>
+  </div>
+
+  <div class="fault" *ngIf=" isShow">
+    <div class="input-group-append">
+      <button for="faultAngle" (click)="faultFactorCalc(stopeDip.value)">
+        Fault factor estimation
+      </button>
+      <i class="fas fa-info-circle" aria-hidden="true" 
+        matTooltip="If skipped, fault factor will be 1 for selected stope surface" 
+        matTooltipPosition="right" matTooltipClass="toolTip" style="margin-top: 1%;">
+      </i>
+    </div>
+  </div>
+
+<div class="calc">
+  <span><button 
+    (click)="onClickReset()" class="mat-raised-button mat-primary" type="submit" style="width:38%"><i class="fas fa-plus" style="background:none;font-size:1.1vw; color:white; margin-right: 0.2em;"></i>
+    Add new stope surface</button></span>
+  <span id ="right"><button class="mat-raised-button mat-primary" [disabled]="factorsForm.invalid" (click)="CalcFactors(ucs.value, diffDip.value, stopeDip.value);">Calculate</button></span>
+</div>
+
+</form>
+</div>
+
+<div class="back">
+  <button class="mat-raised-button mat-primary" routerLink="/stress/stress-res">&laquo;  Back</button>
+</div>
+
+<router-outlet></router-outlet> 
+
+</div>

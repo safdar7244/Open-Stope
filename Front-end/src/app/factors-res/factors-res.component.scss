@@ -1,0 +1,104 @@
+.row-2 {
+  background-color: white;  
+  top:2%;
+  height: 81%;
+  width: 52%;
+  margin-right: 2%;
+  float: right;
+  position:relative;
+  border-radius: 4px;
+
+  #aFactor {
+    position: fixed;
+    top: 3%;
+    right: 30%;
+    width: 22%;
+    height: 26%;
+    margin-left: 0%;
+    margin-top: 3%;
+  }
+  
+  #bFactor {
+    position: fixed;
+    top: 2%;
+    right: 5%;
+    width: 22%;
+    height: 26%;
+    margin-left: 0%;
+    margin-top: 3%;
+  }
+  
+  #cFactor {
+    position: fixed;
+    top: 30%;
+    right: 30%;
+    width: 22%;
+    height: 26%;
+    margin-left: 0%;
+    margin-top: 3%;
+  }
+  
+  #tFactor {
+    position: fixed;
+    top: 30%;
+    right: 5%;
+    width: 22%;
+    height: 26%;
+    margin-left: 0%;
+    margin-top: 3%;
+  }
+
+  #fFactor {
+    position: fixed;
+    top: 57%;
+    right: 30%;
+    width: 22%;
+    height: 26%;
+    margin-left: 0%;
+    margin-top: 3%;
+  }
+  
+  #stabNumber {
+    position: fixed;
+    top: 57%;
+    right: 5%;
+    width: 22%;
+    height: 26%;
+    margin-left: 0%;
+    margin-top: 3%;
+  }
+}
+  
+.next button {
+  background-color: #226556;
+  border: none;
+  color: white;
+  padding: 0.5%;
+  width: 13%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2vw;
+  border-radius: 0.5em;
+  display: block;
+  position: fixed;
+  bottom: 5%;
+  right:3%;
+  &:hover {
+    background: #267463;
+    text-decoration: none;
+    color: white;
+    border: none;}
+}
+
+.next button:focus {
+  outline:none !important;
+}
+
+@media only screen and (max-width:750px) {
+  .next button {
+    padding: 0%;
+  }
+  #factors {
+    margin-top: 7%;
+  }
+}

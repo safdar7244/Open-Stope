@@ -1,0 +1,81 @@
+.calc button {
+  background-color: #226556;
+  border: none;
+  color: white;
+  padding: 1%;
+  width: 20%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.1vw;
+  border-radius: 0.5em;
+  margin-top: 2%;
+  position: relative;    
+  margin-left: 35%;
+  &:hover {
+    background: #267463;
+    text-decoration: none;
+    color: white;
+    border: none;
+}}
+.calc button:focus {
+  outline:none !important;
+}
+
+input[type=number], select, textarea {
+  border-color: #696969;
+  color: black;
+  width: 65%;
+  margin-left: 17%;
+  padding: 1%;
+  border-radius: 0.5em;
+  font-size: 1vw;
+  height: 10%;
+  box-shadow: none !important;
+  &:focus {
+    box-shadow:1px 1px 3px #226556 !important;
+  }
+}
+
+label {
+  padding: 1% 1% 0.5% 0%;
+  text-align: left;
+  display: block;
+  font-size: 1.1vw;
+  color: black;
+  margin-bottom: 0;
+  margin-left: 17%;
+}
+.text-danger {
+width: 100%;
+margin-left: 17%;
+padding-bottom: 0;
+margin-bottom: 0;
+position: absolute;
+font-size: 0.9vw;
+}
+
+@media only screen and (max-width:750px) {
+  .calc button {
+    padding: 0%;
+    margin-top: 1.5%;
+  }
+
+  input[type=number], select, textarea {
+    padding: 1%;
+    font-size: 1vw;
+    height: 10%;
+    margin-bottom: -0.5em;
+    
+  }
+
+  label {
+    padding: 0%;
+    margin-top: -1em;
+  }
+.text-danger {
+  padding-top: 0%;
+  margin-top: 0%;
+  }
+}
+
+

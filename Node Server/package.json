@@ -1,0 +1,31 @@
+{
+  "name": "myServer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "14.15.1"
+  },
+  "dependencies": {
+    "Cron": "0.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.5",
+    "mysql": "^2.18.1",
+    "node-cron": "^3.0.0",
+    "nodemailer": "^6.6.3",
+    "path": "^0.12.7",
+    "stripe": "^8.168.0"
+  }
+}
